@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H1>Simulado</H1>
+
+    Salario: <input type="number" id="input_salario"> <br> <!-- inserir o salario -->
+    Adicional: <input type="number" id="input_add"> <br> <!-- inserir o adicional -->
+    Bônus: <input type="number" id="input_bonus"> <br> <!-- inserir o bonus -->
+
+    <button onclick="analisar()">Analisar Minha Renda</button> <br> 
+    <!-- função onclick para analisar o que foi pedido na questão -->
+
+    <div id="div_mensagem"></div> <!-- mensagem que irá mostrar após a função for rodada -->
+</body>
+
+<script>
+    function analisar() { //função que é ativada no botão, sem o '()' não funciona.
+        // o Number(input.value) é usado apenas nos casos em que o input é um numero.
+        var salario = Number(input_salario.value) // variavel do salario.
+        var add = Number(input_add.value) // variavel do adicional
+        var bonus = Number(input_bonus.value) // variavel do bonus
+        var salarioBruto = salario + add + bonus // variavel do salario bruto
+        // boa pratica criar variaveis fora de if e atribuir valor no if (apenas se forem usados no if)
+        var IR = 0 // variavel do IR, apenas sendo criada para atribuir valor depois
+        var salarioIR = 0 // variavel do salarioIR, seria o: salarioBruto - IR
+        var INSS = 0 // variavel do INSS, apenas sendo criada para atribuir valor depois
+        var FGTS = 0 // variavel do FGTS, apenas sendo criada para atribuir valor depois
+        var liquido = 0 // variavel do salario liquido, apenas sendo criada para atribuir valor depois
+
+        if (salarioBruto >= 10000) {
+            IR = salarioBruto * 0.125
+            salarioIR = salarioBruto - IR
+            INSS = salarioIR * 0.1
+            FGTS = salarioIR * 0.08
+            liquido = salarioBruto - IR - INSS - FGTS
+            // definindo valor das variaveis no caso do salario bruto ser maior ou igual a 10.000,00
+        } 
+
+        if (salarioBruto < 10000) {
+            salarioIR = salarioBruto
+            INSS = salarioIR * 0.1
+            FGTS = salarioIR * 0.08
+            liquido = salarioBruto - INSS - FGTS
+            // definindo valor das variaveis no caso do salario bruto ser menor a 10.000,00
+        }
+
+        var poupar = liquido * 0.15 // variavel do quanto seria poupado por mes, criada após a atribuição de valor ao liquido
+        var ano = poupar * 12 // variavel do quanto seria poupado por ano, criada após a atribuição de valor ao liquido
+
+        if (salarioBruto <= 2500) {
+            div_mensagem.innerHTML = `ANÁLISE DA SUA RENDA <br>
+            Com o salário de R$${salario}, com o adicional de R$${add} e bônus de R$${bonus}, você tem: <br> <br>
+            Bruto: R$${salarioBruto} <br>
+            IR: R$0 <br>
+            INSS: R$${INSS} <br>
+            FGTS: R$${FGTS} <br>
+            Liquido: R$${liquido} <br> <br>
+            Com a renda de R$${liquido}, é recomendado obter uma renda extra para realizar uma poupança
+            `
+            // texto que será exibido quando o salario bruto é menor ou igual a 2.500,00
+        }
+
+        if (salarioBruto > 2500) {
+            div_mensagem.innerHTML = `ANÁLISE DA SUA RENDA <br>
+            Com o salário de R$${salario}, com o adicional de R$${add} e bônus de R$${bonus}, você tem: <br> <br>
+            Bruto: R$${salarioBruto} <br>
+            IR: R$0 <br>
+            INSS: R$${INSS} <br>
+            FGTS: R$${FGTS} <br>
+            Liquido: R$${liquido} <br> <br>
+            Com a renda de R$${liquido}, é recomendado poupar R$${poupar}, para que em um ano tenha poupado R$${ano}
+            `
+            // texto que será exibido quando o salario bruto esta entre 2.500,00 e 10.000,00
+        }
+
+        if (salarioBruto >= 10000) {
+            div_mensagem.innerHTML = `ANÁLISE DA SUA RENDA <br>
+            Com o salário de R$${salario}, com o adicional de R$${add} e bônus de R$${bonus}, você tem: <br> <br>
+            Bruto: R$${salarioBruto} <br>
+            IR: R$${IR} <br>
+            INSS: R$${INSS} <br>
+            FGTS: R$${FGTS} <br>
+            Liquido: R$${liquido} <br> <br>
+            Com a renda de R$${liquido}, é recomendado poupar R$${poupar}, para que em um ano tenha poupado R$${ano}
+            `
+            // texto que será exibido quando o salario bruto é maior ou igual a 10.000,00
+        }
+    }
+</script>
+
+</html>

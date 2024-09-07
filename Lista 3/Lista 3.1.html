@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 1</title>
+</head>
+<body>
+
+    <h1>Exercicio 1</h1>
+    Idade: <input id="input_Idade" type="text"> <br>
+
+    <button onclick="Homem()">Aposentadoria Homem</button>
+    <button onclick="Mulher()">Aposentadoria Mulher</button>
+
+</body>
+</html>
+
+
+<script>
+    function Homem() {
+        var Idade_H = Number(input_Idade.value)
+        var Aposentadoria_H = 70 - Idade_H
+        
+        alert('Faltam ' + Aposentadoria_H + ' anos para você se aposentar')
+    }
+
+    function Mulher() {
+        var Idade_M = Number(input_Idade.value)
+        var Aposentadoria_M = 60 - Idade_M
+
+        alert('Faltam ' + Aposentadoria_M + ' anos para você se aposentar')
+    }
+</script>

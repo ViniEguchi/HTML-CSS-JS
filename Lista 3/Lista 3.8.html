@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 8</title>
+</head>
+<body>
+    <h1>Exercicio 8</h1>
+
+    valor depositado: <input id="input_d" type="text"> <br>
+    valor retirado: <input id="input_r" type="text"> <br>
+
+    <button onclick="depositar()">Depositar</button>
+    <button onclick="retirar()">Retirar</button>
+</body>
+</html>
+
+<script>
+    var saldo = 0
+
+    function depositar() {
+        
+        var mais = Number(input_d.value)
+        saldo = saldo + mais
+
+        alert(`Depósito de R$${mais} efetuado! Saldo atual: R$${saldo}`)
+
+    }
+
+    function retirar() {
+        
+        var menos = Number(input_r.value)
+        saldo = saldo - menos
+
+        alert(`Retirada de R$${menos} efetuada! Saldo atual: R$${saldo}`)
+
+    }
+</script>

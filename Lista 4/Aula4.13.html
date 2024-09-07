@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 13</h1>
+
+    Nota 1: <input type="number" id="input_n1"> <br>
+    Nota 2: <input type="number" id="input_n2"> <br>
+
+    <button onclick="media()">Verificar situação</button> <br>
+</body>
+
+<script>
+    function media() {
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var media = (n1 + n2) / 2
+        
+        if (media >= 6) {
+            alert(`Parabéns, aprovado!`)
+        } else {
+            alert(`Tente outra vez`)
+        }
+    }
+</script>
+
+</html>

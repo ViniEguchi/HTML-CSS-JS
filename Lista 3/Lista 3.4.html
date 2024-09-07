@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <h1>Exercicio 4</h1>
+
+    Nome do guerreiro: <input id="input_nome" type="text"> <br>
+    Quantidade inicial de Ki: <input id="input_ki" type="text"> <br>
+
+    <button onclick="ver()">Ver Ki em cada forma</button>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var nome = input_nome.value
+        var Ki = input_ki.value
+        var forma_1 = Ki * 50
+        var forma_2 = Ki * 100
+
+        alert(`${nome} tem ${forma_1} de Ki na forma Super Sayajin`)
+        alert(`${nome} tem ${forma_2} de Ki na forma Super Sayajin`)
+    }
+</script>

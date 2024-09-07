@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <h1>Exercicio 6</h1>
+
+    Número 1: <input id="input_n1" type="text"> <br>
+    Número 2: <input id="input_n2" type="text"> <br>
+
+    <button onclick="somar()">Somar</button> <br>
+    <button onclick="subtrair()">Subtrair</button> <br>
+    <button onclick="multiplicar()">Multiplicar</button> <br>
+    <button onclick="divisão()">Divisão</button>
+</body>
+</html>
+
+<script>
+    function somar() {
+        var n1 = input_n1.value
+        var n2 = input_n2.value
+        var soma = Number(n1) + Number(n2)
+
+        alert(`A soma entre ${n1} e ${n2} é ${soma}`)
+    }
+
+    function subtrair() {
+        var n1 = input_n1.value
+        var n2 = input_n2.value
+        var subtrair = n1 - n2
+
+        alert(`A soma entre ${n1} e ${n2} é ${subtrair}`)
+    }
+
+    function multiplicar() {
+        var n1 = input_n1.value
+        var n2 = input_n2.value
+        var multiplicar = n1 * n2
+
+        alert(`A soma entre ${n1} e ${n2} é ${multiplicar}`)
+    }
+
+    function divisão() {
+        var n1 = input_n1.value
+        var n2 = input_n2.value
+        var divisão = n1 / n2
+
+        alert(`A soma entre ${n1} e ${n2} é ${divisão}`)
+    }
+</script>

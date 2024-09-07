@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 17</h1>
+
+    Frequencia do aluno(0 a 100): <input type="text" id="input_freq"> <br>
+
+    <button onclick="analisar()">Analisar Frequencia</button> <br>
+
+    <div id="div_imagem"></div>
+    <img src="">
+</body>
+
+<script>
+    function analisar() {
+        var freq = Number(input_freq.value)
+
+        if (freq >= 50) {
+            div_imagem.innerHTML = `<img src="https://mh-1-cdn.panthermedia.net/media/previews/0026000000/26581000/~aluno-estudioso-aprendendo-tomando-notas-na_26581269_high.jpg">`
+        } 
+        if (freq < 50) {
+            div_imagem.innerHTML = `<img src="https://st4.depositphotos.com/12985790/20516/i/450/depositphotos_205163862-stock-photo-smiling-traveler-hat-backpack-tourist.jpg">`
+        }
+    }
+</script>
+
+</html>

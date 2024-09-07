@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 9</h1>
+
+    Informar série (Sitcon): <input type="text" id="input_serie"> <br>
+    informar episódios assistidos: <input type="text" id="input_ep"> <br>
+
+    <button onclick="verificar()">Verificar nivel</button> <br>
+
+    <div id="div_mensagem"></div> <br>
+    <div id="div_aviso"></div> <br>
+</body>
+
+<script>
+    function verificar() {
+        var episodios = Number(input_ep.value)
+        var nome = input_serie.value
+        var resultado = (episodios * 22) / 60
+
+        div_mensagem.innerHTML = `Vejo que você gosta da série ${nome}`
+
+        if (resultado > 30) {
+            div_aviso.innerHTML = `Uau, você realmente gosta dessa série!`
+        }
+    }
+</script>
+
+</html>

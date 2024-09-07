@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1> <!-- titulo -->
+    <b></b> <!-- negrito -->
+    <p></p> <!-- paragrafo -->
+    <i></i> <!-- italico -->
+
+    <!-- input#input_exemplo >> <input type="text" id="input_exemplo"> -->
+    <input type="text" id="input_exemplo"> <!-- inserir dados no site -->
+
+    <button onclick="exemplo()">Exemplo</button> <!-- botão para ativar função,
+    na função exemplo() não esquecer os parenteses -->
+
+    <div id="div_exemplo"></div> <!-- usar innerHTML para fazer alteração no HTML usando JavaScript -->
+
+    <img src="">
+</body>
+</html>
+
+<script>
+    var exemplo = Number(input_exemplo.value) 
+        /* variavel que tem o valor da input.
+        Caso a input seja um numero é necessari ter Number() e o input dentro */
+        /* no caso do input ser texto ou fazer conta na variavel não é necessario o Number() */
+    
+    /* if (condition) {
+        exemplo de função if
+    } */
+
+   /* if (condition) {
+        exemplo de função if else
+   } else {
+        else precisa estar junto do if ou não vai funcionar
+   } */
+
+/* div_mensagem.innerHTML = `${}`, exemplo de innerHTML. Lembrar de usar crase(``).
+    Interpolação ${} para adcionar variaveis ou contas (funciona apenas com crase) */
+
+/* div_mensagem.innerHTML = `<img src="link da foto">`. Exemplo de usar uma div para exibir uma imagem */
+
+/* div_mensagem.style.color = "red". exemplo de como mudar a cor do texto para vermelho */
+
+/* div_mensagem.innerHTML = `<b style = "color = red">exemplo</b>`.
+Exemplo de usar uma div para mudar a formatação do texto,
+o texto 'exemplo' vai ser exibido na cor vermelha e em negrito */
+</script>

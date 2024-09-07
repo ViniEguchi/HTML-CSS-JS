@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+<body>
+    <h1>Exercicio 5</h1>
+
+    Nota da avaliação continuada: <input id="input_cont" type="text"> <br>
+    Nota da avaliação semestral: <input id="input_sem" type="text"> <br>
+    Nome: <input id="input_nome" type="text">
+
+    <button onclick="media()">média</button>
+</body>
+</html>
+
+<script>
+    function media() {
+        var nome = input_nome.value
+        var cont = input_cont.value
+        var sem = input_sem.value
+        var media = (cont * 0.4) + (sem * 0.6)
+
+        alert(`A média de ${nome} será de ${media}`)
+    }
+</script>

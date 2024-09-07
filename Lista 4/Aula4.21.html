@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 21</h1>
+
+    Meta de economia: <input type="number" id="input_meta"> <br>
+    Quanto tem guardado: <input type="number" id="input_save"> <br>
+
+    <button onclick="analisar()">Analisar economia</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+
+<script>
+    function analisar() {
+        var meta = Number(input_meta.value)
+        var save = Number(input_save.value)
+        var plus = save - meta
+        var minus = meta - save
+
+        if (meta > save) {
+            div_mensagem.innerHTML = `Força! Ainda em busca da meta! Falta R$${minus}`
+        }
+
+        if (meta < save) {
+            div_mensagem.innerHTML = ` Parabéns, meta alcançada! Meta ultrapassada em R$${plus}`
+        }
+
+        if (meta == save) {
+            div_mensagem.innerHTML = `Parabéns, meta alcançada!`
+        }
+    }
+</script>
+
+</html>

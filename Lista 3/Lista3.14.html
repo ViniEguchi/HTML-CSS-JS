@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 14</title>
+</head>
+<body>
+    <h1>Exercicio 14</h1>
+
+    Quantidade base de Ki: <input id="input_ki" type="text"> <br>
+    Transformar em: 
+
+    <button onclick="SuperSJ()">SSJ</button>
+    <button onclick="SuperSJ2()">SSJ2</button>
+    <button onclick="SuperSJ3()">SSJ3</button>
+
+    <div id="div_aviso"></div>
+</body>
+</html>
+
+<script>
+    function SuperSJ() {
+        var Ki = Number(input_ki.value)
+        var SSJ = Ki * 50
+
+        div_aviso.innerHTML = `Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${SSJ}`
+    }
+
+    function SuperSJ2() {
+        var Ki = Number(input_ki.value)
+        var SSJ2 = Ki * 100
+        
+        div_aviso.innerHTML = `Após se transformar em SSJ2, o ki desse Sayajin passa a ser de ${SSJ2}`
+    }
+
+    function SuperSJ3() {
+        var Ki = Number(input_ki.value)
+        var SSJ3 = Ki * 200
+
+        alert(`Após se transformar em SSJ, o ki desse Sayajin passa a ser de ${SSJ3}`)
+    }
+</script>

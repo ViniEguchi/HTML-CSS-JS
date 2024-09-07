@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 11</title>
+</head>
+<body>
+    <h1>Exercicio 11</h1>
+
+    Número: <input id="input_tabuada" type="text">
+
+    <button onclick="Tabuada()">Ver Tabuada</button>
+</body>
+</html>
+
+<script>
+    function Tabuada() {
+        var num = Number(input_tabuada.value)
+        var dois = num * 2
+        var tres = num * 3
+        var quatro = num * 4
+        var cinco = num * 5
+        var seis = num * 6
+        var sete = num * 7
+        var oito = num * 8
+        var nove = num * 9
+
+        alert(`${num} x 1 = ${num}
+        ${num} x 2 = ${dois}
+        ${num} x 3 = ${tres}
+        ${num} x 4 = ${quatro}
+        ${num} x 5 = ${cinco}
+        ${num} x 6 = ${seis}
+        ${num} x 7 = ${sete}
+        ${num} x 8 = ${oito}
+        ${num} x 9 = ${nove}`)
+    }
+</script>

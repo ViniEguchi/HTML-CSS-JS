@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercício 2</h1>
+
+    latinhas consumidas por dia: <input id="input_qtd" type="text">
+
+    <button onclick="ano()">Quantos Refris?</button> <br>
+
+    <div id="div_mensagem"></div> <br>
+    <div id="div_diabetes"></div>
+</body>
+</html>
+
+<script>
+    function ano() {
+        var qtd = Number(input_qtd.value)
+        var refri = qtd * 365
+
+        div_mensagem.innerHTML = `Você consome ${refri} latinhas de refrigerante em 1 ano`
+
+        if (refri > 500) {
+            div_diabetes.innerHTML = `Cuidado com a diabetes`
+        }
+    }
+</script>

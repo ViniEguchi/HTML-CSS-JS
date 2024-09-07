@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 13</title>
+</head>
+<body>
+    <h1>Exercicio 13</h1>
+
+    Valor da passagem de onibus: <input id="input_valor" type="text"> <br>
+    Quantidade de viagens no mês: <input id="input_qtd" type="text"> <br>
+    Distancia entre casa e trabalho (em Km): <input id="input_dis" type="text"> <br>
+
+    <button onclick="Calcular()">Calcular VT</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function Calcular() {
+        var valor = Number(input_valor.value)
+        var qtd = Number(input_qtd.value)
+        var distancia = Number(input_dis.value)
+        var onibus = valor * qtd * 0.90
+        var uber = qtd * 0.1 * distancia * 0.75
+        var total = onibus + uber
+
+        div_mensagem.innerHTML = `Você vai gastar R$${total} por mês com transporte`
+    }
+</script>
