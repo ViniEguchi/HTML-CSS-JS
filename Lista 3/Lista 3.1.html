@@ -6,11 +6,15 @@
     <title>Exercicio 1</title>
 </head>
 <body>
-
     <h1>Exercicio 1</h1>
+
+    <!-- input da idade do usuário -->
     Idade: <input id="input_Idade" type="text"> <br>
 
+    <!-- botão que será utilizado caso o usuário seja homem -->
     <button onclick="Homem()">Aposentadoria Homem</button>
+
+    <!-- botão que será utilizado caso o usuário seja mulher -->
     <button onclick="Mulher()">Aposentadoria Mulher</button>
 
 </body>
@@ -18,6 +22,7 @@
 
 
 <script>
+    // função para quando o usuário clicar no botão homem
     function Homem() {
         var Idade_H = Number(input_Idade.value)
         var Aposentadoria_H = 70 - Idade_H
@@ -25,6 +30,7 @@
         alert('Faltam ' + Aposentadoria_H + ' anos para você se aposentar')
     }
 
+    // função para quando o usuário clicar no botão homem
     function Mulher() {
         var Idade_M = Number(input_Idade.value)
         var Aposentadoria_M = 60 - Idade_M
