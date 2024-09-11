@@ -14,18 +14,19 @@
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão 'Calcular sono'
     function calcular() {
-        var horas = Number(input_sono.value)
-        var fase1 = horas * 0.05
-        var fase2 = horas * 0.45
-        var fase3 = horas * 0.3
-        var REM = horas * 0.2
+        var horas = Number(input_sono.value);
+        var fase1 = horas * 0.05;
+        var fase2 = horas * 0.45;
+        var fase3 = horas * 0.3;
+        var REM = horas * 0.2;
 
         //Alerta que será exibido na tela
         alert(`Ao dormir ${horas} horas, você dormiu:
         ${fase1} horas na fase 1
         ${fase2} horas na fase 2
         ${fase3} horas na fase 3
-        ${REM} horas na fase REM`)
+        ${REM} horas na fase REM`);
     }
 </script>

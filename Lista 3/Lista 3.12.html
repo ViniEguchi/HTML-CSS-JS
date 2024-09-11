@@ -19,12 +19,13 @@
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão 'Ver valor por amigo'
     function Resultado() {
-        var preço = Number(input_preço.value) * 1.1
-        var sabor = input_sabor.value
-        var amigo = Number(input_amigo.value)
-        var divisao = preço / amigo
+        var preço = Number(input_preço.value) * 1.1;
+        var sabor = input_sabor.value;
+        var amigo = Number(input_amigo.value);
+        var divisao = preço / amigo;
 
-        div_mensagem.innerHTML = `Cada amigo vai colaborar com R$${divisao} para a pizza de ${sabor}`
+        div_mensagem.innerHTML = `Cada amigo vai colaborar com R$${divisao} para a pizza de ${sabor}`;
     }
 </script>

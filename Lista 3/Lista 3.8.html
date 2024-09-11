@@ -19,21 +19,23 @@
 <script>
     var saldo = 0
 
+    //Função que irá rodar ao clicar no botão 'Depositar'
     function depositar() {
         
-        var mais = Number(input_d.value)
-        saldo = saldo + mais
+        var mais = Number(input_d.value);
+        saldo = saldo + mais;
 
         //Alerta que será exibido na tela
-        alert(`Depósito de R$${mais} efetuado! Saldo atual: R$${saldo}`)
+        alert(`Depósito de R$${mais} efetuado! Saldo atual: R$${saldo}`);
     }
 
+    //Função que irá rodar ao clicar no botão 'Retirar'
     function retirar() {
         
-        var menos = Number(input_r.value)
-        saldo = saldo - menos
+        var menos = Number(input_r.value);
+        saldo = saldo - menos;
 
         //Alerta que será exibido na tela
-        alert(`Retirada de R$${menos} efetuada! Saldo atual: R$${saldo}`)
+        alert(`Retirada de R$${menos} efetuada! Saldo atual: R$${saldo}`);
     }
 </script>
