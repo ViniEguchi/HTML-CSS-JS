@@ -31,12 +31,25 @@
 <script>
     //Função que irá rodar ao clicar no botão 'Resultado da Eleição'
     function Resultado() {
+        //varivael da quantidade de votos do candidato A
         var A = Number(input_A.value);
+
+        //varivael da quantidade de votos do candidato B
         var B = Number(input_B.value);
+
+        //varivael da quantidade de votos invalidos (brancos + nulos)
         var invalido = Number(input_branco.value) + Number(input_nulo.value);
+
+        //variavel da quantidade total de votos 
         var total = A + B + invalido;
+
+        //varivael da porcentagem de votos do candidato A
         var Por_A = (A / total) * 100;
+
+        //varivael da porcentagem de votos do candidato B
         var Por_B = (B / total) * 100;
+
+        //varivael da porcentagem de votos invalidos
         var Por_in = (invalido / total) * 100;
 
         //mensagem que irá aparecer na tela, usando a div no HTML

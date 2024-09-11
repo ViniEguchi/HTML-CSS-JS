@@ -19,10 +19,19 @@
 <script>
     //Função que irá rodar ao clicar no botão 'Calcular sono'
     function calcular() {
+        //variavel da quantidade de horas de sono
         var horas = Number(input_sono.value);
+
+        //variavel da quantidade de horas de sono na fase 1
         var fase1 = horas * 0.05;
+
+        //variavel da quantidade de horas de sono na fase 2
         var fase2 = horas * 0.45;
+
+        //variavel da quantidade de horas de sono na fase 3
         var fase3 = horas * 0.3;
+
+        //variavel da quantidade de horas de sono na fase REM
         var REM = horas * 0.2;
 
         //Alerta que será exibido na tela

@@ -28,11 +28,22 @@
 <script>
     //Função que irá rodar ao clicar no botão 'Calcular VT'
     function Calcular() {
+        //variavel do valor da passagem de onibus
         var valor = Number(input_valor.value);
+
+        //variavel da quantidade de viagens no mês
         var qtd = Number(input_qtd.value);
+
+        //variavel da distancia entre a casa e o trabalho do usuario
         var distancia = Number(input_dis.value);
+
+        //variavel do gasto em onibus por mes (lembrando que as viagens de onibus equivalem a 90% das viagens)
         var onibus = valor * qtd * 0.90;
+
+        //variavel do gasto em uber por mes (lembrando que as viagens de uber equivalem a 10% das viagens)
         var uber = qtd * 0.1 * distancia * 0.75;
+
+        //variavel do gasto total em viagens oir mês
         var total = onibus + uber;
 
         //mensagem que irá aparecer na tela, usando a div no HTML

@@ -28,9 +28,16 @@
 <script>
     //Função que irá rodar ao clicar no botão 'Ver valor por amigo'
     function Resultado() {
+        //variavel do preço da pizza (já incluindo os 10%)
         var preço = Number(input_preço.value) * 1.1;
+
+        //variavel do sabor da pizza
         var sabor = input_sabor.value;
+
+        //variavel da quantidade de amigos
         var amigo = Number(input_amigo.value);
+
+        //variavel do valor a ser pago por cada amigo
         var divisao = preço / amigo;
 
         //mensagem que irá aparecer na tela, usando a div no HTML
