@@ -25,11 +25,16 @@
 <script>
     //Função que irá rodar ao clicar no botão 'Receber 100'
     function IMC() {
+        //variavel do peso
         var peso = Number(input_peso.value);
+
+        //variavel da altura
         var altura = Number(input_altura.value) / 100;
-        var resultado = peso / (altura + altura);
+
+        //variavel do IMC do usuario
+        var IMC = peso / (altura + altura);
 
         //mensagem que irá aparecer na tela, usando a div no HTML
-        div_IMC.innerHTML = `IMC = ${resultado}`;
+        div_IMC.innerHTML = `IMC = ${IMC}`;
     }
 </script>
