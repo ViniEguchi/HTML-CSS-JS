@@ -8,21 +8,36 @@
 <body>
     <h1>Exercicio 5</h1>
 
+    <!-- input da nota da avaliação continuada -->
     Nota da avaliação continuada: <input id="input_cont" type="text"> <br>
+
+    <!-- input da nota da avaliação semestral -->
     Nota da avaliação semestral: <input id="input_sem" type="text"> <br>
+
+    <!-- input do nome do usuario -->
     Nome: <input id="input_nome" type="text">
 
+    <!-- Botão para iniciar a função -->
     <button onclick="media()">média</button>
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function media() {
-        var nome = input_nome.value
-        var cont = input_cont.value
-        var sem = input_sem.value
-        var media = (cont * 0.4) + (sem * 0.6)
+        //variavel do nome do usuario
+        var nome = input_nome.value;
 
-        alert(`A média de ${nome} será de ${media}`)
+        //variavel da nota da avaliação continuada 
+        var cont = Number(input_cont.value);
+
+        //variavel da nota da avaliação semestral
+        var sem = Number(input_sem.value);
+
+        //variavel que calcula o valor da média
+        var media = (cont * 0.4) + (sem * 0.6);
+
+        //alerta que será exibido na tela
+        alert(`A média de ${nome} será de ${media}`);
     }
 </script>

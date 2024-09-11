@@ -8,19 +8,30 @@
 <body>
     <h1>Exercicio 2</h1>
 
+    <!-- Input do valor da pizza -->
     Valor da pizza: <input id="input_pizza" type="text"> <br>
+
+    <!-- input da quantidade de amigos -->
     Quantidade de amigos: <input id="input_amigo" type="text"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="LovePizza()">#LovePizza</button>
 </body>
 </html>
 
 <script>
+    //Função que roda quando se clica no botão
     function LovePizza() {
-        var pizza = input_pizza.value
-        var amigo = input_amigo.value
-        var divisão = pizza / amigo
+        //variavel do preço da pizza
+        var pizza = input_pizza.value;
 
-        alert(`Cada um dos ${amigo} amigos vai pagar R$${divisão}`)
+        //variavel da quantidade de amigos
+        var amigo = input_amigo.value;
+
+        //variavel do preço que cada amigo deve pagar
+        var divisão = pizza / amigo;
+
+        //Alerta que será exibido na tela
+        alert(`Cada um dos ${amigo} amigos vai pagar R$${divisão}`);
     }
 </script>

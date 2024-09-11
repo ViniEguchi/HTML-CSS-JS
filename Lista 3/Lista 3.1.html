@@ -24,17 +24,25 @@
 <script>
     // função para quando o usuário clicar no botão homem
     function Homem() {
-        var Idade_H = Number(input_Idade.value)
-        var Aposentadoria_H = 70 - Idade_H
+        //variavel para a idade quando o usuario for homem
+        var Idade_H = Number(input_Idade.value);
+
+        //variavel do tempo que falta para aposentar
+        var Aposentadoria_H = 70 - Idade_H;
         
-        alert('Faltam ' + Aposentadoria_H + ' anos para você se aposentar')
+        //alerta que será exibido na tela
+        alert('Faltam ' + Aposentadoria_H + ' anos para você se aposentar');
     }
 
     // função para quando o usuário clicar no botão homem
     function Mulher() {
-        var Idade_M = Number(input_Idade.value)
-        var Aposentadoria_M = 60 - Idade_M
+        //variavel para a idade quando o usuario for mulher
+        var Idade_M = Number(input_Idade.value);
 
-        alert('Faltam ' + Aposentadoria_M + ' anos para você se aposentar')
+        //variavel do tempo que falta para aposentar
+        var Aposentadoria_M = 60 - Idade_M;
+
+        //alerta que será exibido na tela
+        alert('Faltam ' + Aposentadoria_M + ' anos para você se aposentar');
     }
 </script>

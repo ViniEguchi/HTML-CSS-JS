@@ -8,19 +8,31 @@
 <body>
     <h1>Exercicio 3</h1>
 
+    <!-- Input do valor da passagem -->
     Valor da passagem: <input id="input_pass" type="text"> <br>
+
+    <!-- Input da quantidade de viagens no mês -->
     Quantidade de viagens por mês: <input id="input_viagem" type="text"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="Economia()">Ver economia</button>
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function Economia() {
-        var pass = input_pass.value
-        var viagem = input_viagem.value
-        var economia = (pass * viagem) / 2
 
-        alert(`você vai economizar R$${economia}`)
+        //variavel do preço da passagem
+        var pass = input_pass.value;
+
+        //variavel da quantidade de viagens no mês
+        var viagem = input_viagem.value;
+
+        //variavel da economia gerada por passagem de estudante
+        var economia = (pass * viagem) / 2;
+
+        //alerta que será exibido na tela
+        alert(`você vai economizar R$${economia}`);
     }
 </script>

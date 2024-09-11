@@ -8,21 +8,36 @@
 <body>
     <h1>Exercicio 4</h1>
 
+    <!-- input do nome do guerreiro -->
     Nome do guerreiro: <input id="input_nome" type="text"> <br>
+
+    <!-- input da quantidade de Ki inicial -->
     Quantidade inicial de Ki: <input id="input_ki" type="text"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="ver()">Ver Ki em cada forma</button>
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function ver() {
-        var nome = input_nome.value
-        var Ki = input_ki.value
-        var forma_1 = Ki * 50
-        var forma_2 = Ki * 100
+        //Variavel do nome do guerreiro
+        var nome = input_nome.value;
 
-        alert(`${nome} tem ${forma_1} de Ki na forma Super Sayajin`)
-        alert(`${nome} tem ${forma_2} de Ki na forma Super Sayajin`)
+        //variavel da quantidade inicial de Ki
+        var Ki = Number(input_ki.value);
+
+        //variavel da quantidade de Ki na forma Super Sayajin
+        var forma_1 = Ki * 50;
+
+        //variavel da quantidade de Ki na forma Super Sayajin 2
+        var forma_2 = Ki * 100;
+
+        //alerta que será exibido na tela
+        alert(`${nome} tem ${forma_1} de Ki na forma Super Sayajin`);
+
+        //alerta que será exibido na tela
+        alert(`${nome} tem ${forma_2} de Ki na forma Super Sayajin 2`);
     }
 </script>
