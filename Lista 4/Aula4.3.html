@@ -14,8 +14,7 @@
 
     <button onclick="analizar()">Analizar desempenho</button> <br>
 
-    <div id="div_media"></div> <br>
-    <div id="div_fora"></div>
+    <div id="div_media"></div>
 </body>
 </html>
 
@@ -26,9 +25,9 @@
         var n3 = Number(input_nota3.value)
         var media = (n1 + n2 + n3) / 3
 
-        div_media.innerHTML = `Sua média foi de ${media}`
+        div_media.innerHTML = `Sua média foi de ${media} <br>`
         if (media >= 9.4) {
-            div_fora.innerHTML = `Parabens, você foi fora de série!`
+            div_media.innerHTML = `Parabens, você foi fora de série!`
         }
     }
 </script>

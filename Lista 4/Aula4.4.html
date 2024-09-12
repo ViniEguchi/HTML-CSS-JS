@@ -14,7 +14,6 @@
     <button onclick="calcular()">Rola a Pizza?</button> <br>
     
     <div id='div_mensagem'></div>
-    <i><b id='div_ruim'></b></i>
 </body>
 </html>
 
@@ -22,11 +21,10 @@
     function calcular() {
         var total = Number(input_pizza.value) / Number(input_amigos.value)
 
-        div_mensagem.innerHTML = `Cada amigo vai pagar R$${total} pela pizza`
+        div_mensagem.innerHTML = `Cada amigo vai pagar R$${total} pela pizza <br>`
 
         if (total > 20) {
-            div_ruim.style.color = 'red'
-            div_ruim.innerHTML = `Deu ruim! Pizza muito cara!`
+            div_mensagem.innerHTML += `<i><b style="color: red;">Deu ruim! Pizza muito cara!</b></i>`
         }
     }
 </script>

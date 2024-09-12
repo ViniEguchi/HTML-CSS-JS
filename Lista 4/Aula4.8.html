@@ -13,8 +13,7 @@
 
     <button onclick="Analisar()">Analisar peso</button> <br>
 
-    <div id="div_mensagem"></div> <br>
-    <div id="div_aviso"></div>
+    <div id="div_mensagem"></div>
 </body>
 
 <script>
@@ -24,10 +23,10 @@
         var resultado = H * 80 + M * 60
         div_aviso.style.color = 'Blue'
 
-        div_mensagem.innerHTML = `Este elevador suporta 800Kg e o peso estimado desta lotação é de ${resultado}`
+        div_mensagem.innerHTML = `Este elevador suporta 800Kg e o peso estimado desta lotação é de ${resultado} <br>`
 
         if (resultado > 800) {
-            div_aviso.innerHTML = `Será necessario que alguém desça para que o elevador se movimente`
+            div_mensagem.innerHTML += `Será necessario que alguém desça para que o elevador se movimente`
         }
     }
 </script>

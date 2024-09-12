@@ -13,8 +13,7 @@
 
     <button onclick="verificar()">Verificar nivel</button> <br>
 
-    <div id="div_mensagem"></div> <br>
-    <div id="div_aviso"></div> <br>
+    <div id="div_mensagem"></div>
 </body>
 
 <script>
@@ -23,10 +22,10 @@
         var nome = input_serie.value
         var resultado = (episodios * 22) / 60
 
-        div_mensagem.innerHTML = `Vejo que você gosta da série ${nome}`
+        div_mensagem.innerHTML = `Vejo que você gosta da série ${nome} <br>`
 
         if (resultado > 30) {
-            div_aviso.innerHTML = `Uau, você realmente gosta dessa série!`
+            div_mensagem.innerHTML += `Uau, você realmente gosta dessa série!`
         }
     }
 </script>

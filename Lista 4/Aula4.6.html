@@ -13,8 +13,8 @@
 
     <button onclick="calcular()">Verificar financiamento</button> <br>
 
-    <div id="div_mensagem"></div> <br>
-    <b id="b_aviso"></b>
+    <div id="div_mensagem"></div>
+    
 </body>
 </html>
 
@@ -24,11 +24,10 @@
         var prestação = Number(input_valor.value)
         var resultado = prestação / renda * 100
 
-        div_mensagem.innerHTML = `A prestação corresponde a ${resultado}% da renda familiar`
+        div_mensagem.innerHTML = `A prestação corresponde a ${resultado}% da renda familiar <br>`
 
         if (resultado > 30) {
-            b_aviso.style.color = 'red'
-            b_aviso.innerHTML = `Será necessário complementar a renda familiar`
+            div_mensagem.innerHTML += `<b style="color: red">Será necessário complementar a renda familiar</b>`
         }
     }
 </script>

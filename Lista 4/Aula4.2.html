@@ -12,8 +12,7 @@
 
     <button onclick="ano()">Quantos Refris?</button> <br>
 
-    <div id="div_mensagem"></div> <br>
-    <div id="div_diabetes"></div>
+    <div id="div_mensagem"></div>
 </body>
 </html>
 
@@ -22,10 +21,10 @@
         var qtd = Number(input_qtd.value)
         var refri = qtd * 365
 
-        div_mensagem.innerHTML = `Você consome ${refri} latinhas de refrigerante em 1 ano`
+        div_mensagem.innerHTML = `Você consome ${refri} latinhas de refrigerante em 1 ano <br>`
 
         if (refri > 500) {
-            div_diabetes.innerHTML = `Cuidado com a diabetes`
+            div_mensagem.innerHTML += `Cuidado com a diabetes`
         }
     }
 </script>
