@@ -13,6 +13,7 @@
 
     <button onclick="Analisar()">Analisar conta</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
@@ -23,8 +24,10 @@
         var total = saldo - debito
 
         if (total >= 0) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `<i style="color: blue;">O saldo atual da conta corrente é ${total}</i>`
         } else {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `<b style="color: red;">O saldo atual da conta corrente é ${total}</b>`
         }
     }

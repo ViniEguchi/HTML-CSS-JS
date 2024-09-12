@@ -13,6 +13,7 @@
 
     <button onclick="analisar()">Analisar economia</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
@@ -24,14 +25,17 @@
         var minus = meta - save
 
         if (meta > save) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Força! Ainda em busca da meta! Falta R$${minus}`
         }
 
         if (meta < save) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = ` Parabéns, meta alcançada! Meta ultrapassada em R$${plus}`
         }
 
         if (meta == save) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Parabéns, meta alcançada!`
         }
     }

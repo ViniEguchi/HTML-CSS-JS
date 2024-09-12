@@ -12,6 +12,7 @@
 
     <button onclick="familia()">Analisar familia</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
@@ -20,18 +21,22 @@
         var filho = Number(input_filhos.value)
 
         if (filho >= 1) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Não tem TV`
         }
 
         if (filho >= 2) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Não tem TV <br> Não tem internet`
         }
 
         if (filho >= 3) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Não tem TV <br> Não tem internet <br> Não tem video game`
         }
 
         if (filho >= 4) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Não tem TV <br> Não tem internet <br> Não tem video game <br> Não tem Netflix`
         }
     }

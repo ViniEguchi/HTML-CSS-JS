@@ -12,6 +12,7 @@
 
     <button onclick="compra()">Compra</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
@@ -23,10 +24,14 @@
         if (qtd<=12) {
             valor = 3
             resultado = valor * qtd
+
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `O valor da sua compra foi de ${resultado}`
         } else {
             valor = 2.5
             resultado = valor * qtd
+
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `O valor da sua compra foi de ${resultado}`
         }
     }

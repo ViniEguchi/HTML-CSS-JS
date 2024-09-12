@@ -13,6 +13,7 @@
 
     <button onclick="Avaliar()">Avaliar aluno</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
@@ -22,8 +23,10 @@
         var idade = Number(input_idade.value)
         
         if (idade >= 18) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `${nome}, vamos tirar a CNH?`
         } else {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `${nome}, vai jogar PlayStation!`
         }
     }

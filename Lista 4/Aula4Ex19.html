@@ -12,8 +12,8 @@
 
     <button onclick="verificar()">Verificar clima</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_imagem"></div>
-    <img src="">
 </body>
 
 <script>
@@ -21,8 +21,10 @@
         var temp = Number(input_temp.value)
 
         if (temp >= 10) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_imagem.innerHTML = `<img src="https://costanorte.com.br/media/_versions/legacy/36/13/369813_widelg.jpg">`
         } else {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_imagem.innerHTML = `<img src="https://panattos.com.br/uploads/produtos/2017/07/pao-frances-fermentacao-super-longa-massa-congelada.jpg">`
         }
     }

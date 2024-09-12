@@ -12,8 +12,8 @@
 
     <button onclick="analisar()">Analisar Frequencia</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_imagem"></div>
-    <img src="">
 </body>
 
 <script>
@@ -21,9 +21,11 @@
         var freq = Number(input_freq.value)
 
         if (freq >= 50) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_imagem.innerHTML = `<img src="https://mh-1-cdn.panthermedia.net/media/previews/0026000000/26581000/~aluno-estudioso-aprendendo-tomando-notas-na_26581269_high.jpg">`
         } 
         if (freq < 50) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_imagem.innerHTML = `<img src="https://st4.depositphotos.com/12985790/20516/i/450/depositphotos_205163862-stock-photo-smiling-traveler-hat-backpack-tourist.jpg">`
         }
     }

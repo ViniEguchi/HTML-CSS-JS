@@ -13,6 +13,7 @@
 
     <button onclick="ligar()">Ligar elevevador</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
@@ -25,9 +26,13 @@
 
     if (total <= 500) {
         div_mensagem.style.color = 'green'
+
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_mensagem.innerHTML = `Elevador var se mover, pois esta com ${total}Kg`
     } else {
         div_mensagem.style.color = 'red'
+
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_mensagem.innerHTML = `Alguém precisa descer. Precisa perder ${mais}kg para mover o elevador `
     }
     }
