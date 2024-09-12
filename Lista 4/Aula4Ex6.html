@@ -11,22 +11,26 @@
     Renda familiar: <input id="input_renda" type="text"> <br>
     Valor da Prestação: <input id="input_valor" type="text"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="calcular()">Verificar financiamento</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
-    
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function calcular() {
         var renda = Number(input_renda.value)
         var prestação = Number(input_valor.value)
         var resultado = prestação / renda * 100
 
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_mensagem.innerHTML = `A prestação corresponde a ${resultado}% da renda familiar <br>`
 
         if (resultado > 30) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML += `<b style="color: red">Será necessário complementar a renda familiar</b>`
         }
     }

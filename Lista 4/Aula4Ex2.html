@@ -8,22 +8,28 @@
 <body>
     <h1>Exercício 2</h1>
 
+    <!-- input da quantidade de latinhas consumidas em 1 dia -->
     latinhas consumidas por dia: <input id="input_qtd" type="text">
 
+    <!-- Botão para iniciar a função -->
     <button onclick="ano()">Quantos Refris?</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function ano() {
         var qtd = Number(input_qtd.value)
         var refri = qtd * 365
 
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_mensagem.innerHTML = `Você consome ${refri} latinhas de refrigerante em 1 ano <br>`
 
         if (refri > 500) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML += `Cuidado com a diabetes`
         }
     }

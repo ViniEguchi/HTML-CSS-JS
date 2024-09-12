@@ -11,8 +11,10 @@
     saldo da conta: <input id="input_saldo" type="text"> <br>
     valor do debito: <input id="input_debito" type="text"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="Analizar()">Analizar conta</button> <br>
     
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
@@ -20,6 +22,7 @@
     var saldo = 0
     var ciclo = 0
 
+    //Função que irá rodar ao clicar no botão
     function Analizar() {
         if (ciclo == 0) {
             saldo = Number(input_saldo.value)
@@ -30,10 +33,12 @@
         var mensagem = `O saldo atual da conta corrente é ${saldo}`
 
         if (saldo < 0) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `<b style='color: red'>${mensagem}<b>`
         }
 
         if (saldo >= 0) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = mensagem
         }
 

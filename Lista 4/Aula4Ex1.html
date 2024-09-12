@@ -8,14 +8,18 @@
 <body>
     <h1>Exercício 1</h1>
 
+    <!-- input da idade do usuario -->
     idade: <input id="input_idade" type="text">
 
+    <!-- Botão para iniciar a função -->
     <button onclick="festa()">Ir pra festa</button>
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function festa() {
+        //variavel da idade do usuario
         var idade = Number(input_idade.value)
 
         if (idade < 18) {

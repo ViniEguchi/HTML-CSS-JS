@@ -12,21 +12,27 @@
     nota 2: <input id="input_nota2" type="text"> <br>
     nota 3: <input id="input_nota3" type="text"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="analizar()">Analizar desempenho</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_media"></div>
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function analizar() {
         var n1 = Number(input_nota1.value)
         var n2 = Number(input_nota2.value)
         var n3 = Number(input_nota3.value)
         var media = (n1 + n2 + n3) / 3
 
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_media.innerHTML = `Sua média foi de ${media} <br>`
+
         if (media >= 9.4) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_media.innerHTML = `Parabens, você foi fora de série!`
         }
     }

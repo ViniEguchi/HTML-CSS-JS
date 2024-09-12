@@ -11,20 +11,25 @@
     Informar série (Sitcon): <input type="text" id="input_serie"> <br>
     informar episódios assistidos: <input type="text" id="input_ep"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="verificar()">Verificar nivel</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function verificar() {
         var episodios = Number(input_ep.value)
         var nome = input_serie.value
         var resultado = (episodios * 22) / 60
 
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_mensagem.innerHTML = `Vejo que você gosta da série ${nome} <br>`
 
         if (resultado > 30) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML += `Uau, você realmente gosta dessa série!`
         }
     }

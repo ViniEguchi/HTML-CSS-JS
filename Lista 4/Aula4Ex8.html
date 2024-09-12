@@ -11,21 +11,28 @@
     Quantidade de Homens: <input id="input_qtdH" type="text"> <br>
     Quantidade de Mulheres: <input type="text" id="input_qtdM"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="Analisar()">Analisar peso</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function Analisar() {
         var H = Number(input_qtdH.value)
         var M = Number(input_qtdM.value)
         var resultado = H * 80 + M * 60
+
+        //customisação do estilo da div (cor)
         div_aviso.style.color = 'Blue'
 
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_mensagem.innerHTML = `Este elevador suporta 800Kg e o peso estimado desta lotação é de ${resultado} <br>`
 
         if (resultado > 800) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML += `Será necessario que alguém desça para que o elevador se movimente`
         }
     }

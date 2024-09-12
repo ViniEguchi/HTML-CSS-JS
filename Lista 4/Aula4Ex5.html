@@ -10,11 +10,13 @@
 
     Quantidade de KWh consumida no mês: <input id="input_consumo" type="text"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="calcular()">Calcular conta de Luz</button>
 </body>
 </html>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function calcular() {    
         var total = Number(input_consumo.value) * 0.85
         var desconto = total * 0.9
