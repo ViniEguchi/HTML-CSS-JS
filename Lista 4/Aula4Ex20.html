@@ -11,6 +11,7 @@
     Quantidade de Homens: <input type="number" id="input_H"> <br>
     Quantidade de Mulheres: <input type="number" id="input_M"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="ligar()">Ligar elevevador</button> <br>
 
     <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
@@ -18,6 +19,7 @@
 </body>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function ligar() {
     var H = Number(input_H.value) * 90
     var M = Number(input_M.value) * 70

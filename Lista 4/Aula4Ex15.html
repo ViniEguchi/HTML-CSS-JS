@@ -11,6 +11,7 @@
     saldo da conta: <input type="number" id="input_saldo"> <br>
     valor do debito: <input type="number" id="input_debito"> <br>
 
+    <!-- Botão para iniciar a função -->
     <button onclick="Analisar()">Analisar conta</button> <br>
 
     <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
@@ -18,6 +19,7 @@
 </body>
 
 <script>
+    //Função que irá rodar ao clicar no botão
     function Analisar() {
         var saldo = Number(input_saldo.value)
         var debito = Number(input_debito.value)
