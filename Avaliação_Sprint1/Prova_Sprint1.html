@@ -58,10 +58,14 @@
         var conta_agua = 0
         var agua_base = 3.5
         var conta_vazamento = 0 //erro na prova, faltou o '= 0'
+
+        /*if não era necessario
         if (vazamentos > 0) {
             conta_vazamento = vazamentos * 10
         }
-        conta_agua = (agua_base * agua) + conta_vazamento
+        conta_agua = (agua_base * agua) + conta_vazamento */
+        
+        conta_agua = (agua_base * agua) + (vazamentos * 10)
         // água
 
         // gas
