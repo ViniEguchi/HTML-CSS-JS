@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculo Média</h1>
+
+    Sprint 1 Atividade <input type="number" id="ipt_spr1A"> <br> <br>
+    Sprint 1 Integrada <input type="number" id="ipt_spr1I"> <br> <br>
+    Sprint 1 Continuada <input type="number" id="ipt_spr1C"> <br> <br>
+    Sprint 2 Atividade <input type="number" id="ipt_spr2A"> <br> <br>
+    Sprint 2 Continuada <input type="number" id="ipt_spr2C"> <br> <br>
+    Sprint 3 Atividade <input type="number" id="ipt_spr3A"> <br> <br>
+    Sprint 3 Continuada <input type="number" id="ipt_spr3C"> <br> <br>
+    Projeto <input type="number" id="ipt_projeto"> <br> <br>
+
+    <button id="media()">Media</button>
+    <button id="atividade()">Falta atividade sprint 3</button> <br>
+    <button id="continuada()">Falta continuada sprint 3</button>
+    <button id="projeto()">Falta projeto</button> 
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var atividade_spr1 = Number(ipt_spr1A.value) * 0.3;
+    var integrada_spr1 = Number(ipt_spr1I.value) * 0.3;
+    var continuada_spr1 = Number(ipt_spr1C.value) * 0.4;
+    var atividade_spr2 = Number(ipt_spr2A.value) * 0.3;
+    var continuada_spr2 = Number(ipt_spr2C.value) * 0.7;
+    var atividade_spr3 = Number(ipt_spr3A.value) * 0.3;
+    var continuada_spr3 = Number(ipt_spr3C.value) * 0.7;
+    var projeto = Number(ipt_projeto.value) * 0.6;
+
+    var sprint_1 = atividade_spr1 + integrada_spr1 + continuada_spr1;
+    var sprint_2 = atividade_spr2 + continuada_spr2;
+    var sprint_3 = atividade_spr3 + continuada_spr3;
+    var media = (sprint_1 + sprint_2 + sprint_3) / 3;
+</script>
