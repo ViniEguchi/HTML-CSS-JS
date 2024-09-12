@@ -8,6 +8,7 @@
 <body>
     <h1>Exercicio 17</h1>
 
+    <!-- input da frequencia -->
     Frequencia do aluno(0 a 100): <input type="text" id="input_freq"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -20,14 +21,15 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function analisar() {
+        //variavel da frequencia
         var freq = Number(input_freq.value)
 
         if (freq >= 50) {
-            //mensagem que irá aparecer na tela, usando a div no HTML
+            //mensagem que irá aparecer na tela, usando a div no HTML (imagem)
             div_imagem.innerHTML = `<img src="https://mh-1-cdn.panthermedia.net/media/previews/0026000000/26581000/~aluno-estudioso-aprendendo-tomando-notas-na_26581269_high.jpg">`
         } 
         if (freq < 50) {
-            //mensagem que irá aparecer na tela, usando a div no HTML
+            //mensagem que irá aparecer na tela, usando a div no HTML (imagem)
             div_imagem.innerHTML = `<img src="https://st4.depositphotos.com/12985790/20516/i/450/depositphotos_205163862-stock-photo-smiling-traveler-hat-backpack-tourist.jpg">`
         }
     }

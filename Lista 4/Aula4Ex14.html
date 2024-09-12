@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 14</h1>
 
+    <!-- input do nome do usuario -->
     Nome: <input type="text" id="input_nome"> <br>
+
+    <!-- input da idade do usuario -->
     Idade: <input type="number" id="input_idade"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -21,7 +24,10 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function Avaliar() {
+        //variavel do nome do usuario
         var nome = input_nome.value
+
+        //variavel da idade do usuario
         var idade = Number(input_idade.value)
         
         if (idade >= 18) {

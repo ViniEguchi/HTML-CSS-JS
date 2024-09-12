@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 15</h1>
     
+    <!-- input do saldo da conta -->
     saldo da conta: <input type="number" id="input_saldo"> <br>
+
+    <!-- input do valor do debito -->
     valor do debito: <input type="number" id="input_debito"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -21,8 +24,13 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function Analisar() {
+        //variavel do saldo da conta
         var saldo = Number(input_saldo.value)
+
+        //variavel do valor do debito
         var debito = Number(input_debito.value)
+
+        //variavel do saldo liquido da conta
         var total = saldo - debito
 
         if (total >= 0) {

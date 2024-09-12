@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 13</h1>
 
+    <!-- input da primeira nota -->
     Nota 1: <input type="number" id="input_n1"> <br>
+
+    <!-- input da segunda nota -->
     Nota 2: <input type="number" id="input_n2"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -18,8 +21,13 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function media() {
+        //variavel do primeiro numero
         var n1 = Number(input_n1.value);
+
+        //variavel do segundo numero
         var n2 = Number(input_n2.value);
+
+        //variavel da media entre os dois numeros
         var media = (n1 + n2) / 2
         
         if (media >= 6) {

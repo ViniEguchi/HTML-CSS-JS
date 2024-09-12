@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 20</h1>
 
+    <!-- input da quantidade de homens -->
     Quantidade de Homens: <input type="number" id="input_H"> <br>
+
+    <!-- input da quantidade de mulheres -->
     Quantidade de Mulheres: <input type="number" id="input_M"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -21,21 +24,30 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function ligar() {
-    var H = Number(input_H.value) * 90
-    var M = Number(input_M.value) * 70
-    var total = H + M
-    var mais = total - 500
+        //variavel da quantidade de homens
+        var H = Number(input_H.value) * 90
 
-    if (total <= 500) {
-        div_mensagem.style.color = 'green'
+        //variavel da quantidade de mulheres
+        var M = Number(input_M.value) * 70
 
-        //mensagem que irá aparecer na tela, usando a div no HTML
-        div_mensagem.innerHTML = `Elevador var se mover, pois esta com ${total}Kg`
-    } else {
-        div_mensagem.style.color = 'red'
+        //variavel do total de pessoas
+        var total = H + M
 
-        //mensagem que irá aparecer na tela, usando a div no HTML
-        div_mensagem.innerHTML = `Alguém precisa descer. Precisa perder ${mais}kg para mover o elevador `
+        //variavel do 'limite' de peso
+        var mais = total - 500
+
+        if (total <= 500) {
+            //customisação do estilo da div (cor)
+            div_mensagem.style.color = 'green'
+
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Elevador var se mover, pois esta com ${total}Kg`
+        } else {
+            //customisação do estilo da div (cor)
+            div_mensagem.style.color = 'red'
+
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Alguém precisa descer. Precisa perder ${mais}kg para mover o elevador `
     }
     }
 </script>

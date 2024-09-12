@@ -8,6 +8,7 @@
 <body>
     <h1>Exercicio 16</h1>
 
+    <!-- input da quantidade de chocolate comprado -->
     Quantidade de chocolates comprados: <input type="number" id="input_qtd"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -20,17 +21,28 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function compra() {
+        //variavel da quantidade de chocolate comprado
         var qtd = Number(input_qtd.value)
+
+        //variavel do valor da unidade do chocolate
         var valor = 0
+
+        //variavel do quanto será pago no final
         var resultado = 0
         if (qtd<=12) {
+            //variavel de atualização do valor
             valor = 3
+
+            //variavel de atualização do resultado
             resultado = valor * qtd
 
             //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `O valor da sua compra foi de ${resultado}`
         } else {
+            //variavel de atualização do valor
             valor = 2.5
+
+            //variavel de atualização do resultado
             resultado = valor * qtd
 
             //mensagem que irá aparecer na tela, usando a div no HTML

@@ -8,6 +8,7 @@
 <body>
     <h1>Exercicio 19</h1>
 
+    <!-- input da temperatura do ambiente -->
     Temperatura do ambiente(ºC): <input type="text" id="input_temp"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -20,13 +21,14 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function verificar() {
+        //variavel da temperatura do ambiente
         var temp = Number(input_temp.value)
 
         if (temp >= 10) {
-            //mensagem que irá aparecer na tela, usando a div no HTML
+            //mensagem que irá aparecer na tela, usando a div no HTML (imagem)
             div_imagem.innerHTML = `<img src="https://costanorte.com.br/media/_versions/legacy/36/13/369813_widelg.jpg">`
         } else {
-            //mensagem que irá aparecer na tela, usando a div no HTML
+            //mensagem que irá aparecer na tela, usando a div no HTML (imagem)
             div_imagem.innerHTML = `<img src="https://panattos.com.br/uploads/produtos/2017/07/pao-frances-fermentacao-super-longa-massa-congelada.jpg">`
         }
     }

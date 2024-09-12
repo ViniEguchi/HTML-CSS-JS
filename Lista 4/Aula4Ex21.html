@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 21</h1>
 
+    <!-- input da meta de economia -->
     Meta de economia: <input type="number" id="input_meta"> <br>
+
+    <!-- input da quantidade de dinheiro guardado -->
     Quanto tem guardado: <input type="number" id="input_save"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -21,9 +24,16 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function analisar() {
+        //variavel da meta de economia
         var meta = Number(input_meta.value)
+
+        //variavel da quantidade de dinheiro guardado
         var save = Number(input_save.value)
+
+        //variavel da diferença entre o dinheiro guardado e a meta
         var plus = save - meta
+
+        //variavel da diferença entre a meta e o dinheiro guardado
         var minus = meta - save
 
         if (meta > save) {
