@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 7</h1>
 
+    <!-- input do saldo da conta -->
     saldo da conta: <input id="input_saldo" type="text"> <br>
+
+    <!-- input do valor do debito -->
     valor do debito: <input id="input_debito" type="text"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -19,17 +22,26 @@
 </body>
 
 <script>
+    //variavel global, pode ser usada em todas as funções. Ainda existe mesmo fora da função
     var saldo = 0
+
+    //variavel global. Existe para contar os ciclos de repetição, função de contador
     var ciclo = 0
 
     //Função que irá rodar ao clicar no botão
     function Analizar() {
         if (ciclo == 0) {
+            //caso seja o primeiro ciclo, atribui o valor da input na variavel saldo
             saldo = Number(input_saldo.value)
         }
 
+        //variavel do valor do debito
         var debito = Number(input_debito.value)
+
+        //variavel de atualização do saldo
         saldo = saldo - debito
+
+        //variavel que vai armazenar a mensagem do innerHTML
         var mensagem = `O saldo atual da conta corrente é ${saldo}`
 
         if (saldo < 0) {
@@ -42,6 +54,7 @@
             div_mensagem.innerHTML = mensagem
         }
 
+        //atualizando o valor do ciclo
         ciclo++
     }
 </script>

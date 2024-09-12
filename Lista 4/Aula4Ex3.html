@@ -8,8 +8,13 @@
 <body>
     <h1>Exercício 3</h1>
 
+    <!-- input da primeira nota -->
     nota 1: <input id="input_nota1" type="text"> <br>
+
+    <!-- input da segunda nota -->
     nota 2: <input id="input_nota2" type="text"> <br>
+
+    <!-- input da terceira nota -->
     nota 3: <input id="input_nota3" type="text"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -23,9 +28,16 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function analizar() {
+        //variavel da primeira nota
         var n1 = Number(input_nota1.value)
+
+        //variavel da segunda nota
         var n2 = Number(input_nota2.value)
+
+        //variavel da terceira nota
         var n3 = Number(input_nota3.value)
+
+        //variavel da media aritimetica das notas
         var media = (n1 + n2 + n3) / 3
 
         //mensagem que irá aparecer na tela, usando a div no HTML

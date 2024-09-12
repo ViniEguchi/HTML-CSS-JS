@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 9</h1>
 
+    <!-- input do nome da série -->
     Informar série (Sitcon): <input type="text" id="input_serie"> <br>
+
+    <!-- input da quantidade de episódios assistidos -->
     informar episódios assistidos: <input type="text" id="input_ep"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -21,8 +24,13 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function verificar() {
+        //variavel da quantidade de episódios
         var episodios = Number(input_ep.value)
+
+        //variavel do nome da série
         var nome = input_serie.value
+
+        //variavel do tempo assistido
         var resultado = (episodios * 22) / 60
 
         //mensagem que irá aparecer na tela, usando a div no HTML

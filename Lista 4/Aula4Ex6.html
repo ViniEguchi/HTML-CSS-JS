@@ -8,7 +8,10 @@
 <body>
     <h1>Exercício 6</h1>
 
+    <!-- input da renda familiar -->
     Renda familiar: <input id="input_renda" type="text"> <br>
+
+    <!-- input do valor da prestação -->
     Valor da Prestação: <input id="input_valor" type="text"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -22,8 +25,13 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function calcular() {
+        //variavel da renda familiar
         var renda = Number(input_renda.value)
+
+        //variavel do valor da prestação
         var prestação = Number(input_valor.value)
+
+        //variavel da porcentagem da prestação em relação a renda familiar
         var resultado = prestação / renda * 100
 
         //mensagem que irá aparecer na tela, usando a div no HTML

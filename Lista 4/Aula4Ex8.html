@@ -8,7 +8,10 @@
 <body>
     <h1>Exercicio 8</h1>
 
+    <!-- input da quantidade de homens -->
     Quantidade de Homens: <input id="input_qtdH" type="text"> <br>
+
+    <!-- input da quantidade de mulheres -->
     Quantidade de Mulheres: <input type="text" id="input_qtdM"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -21,8 +24,13 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function Analisar() {
+        //variavel da quantidade de homens
         var H = Number(input_qtdH.value)
+
+        //variavel da quantidade de mulheres
         var M = Number(input_qtdM.value)
+
+        //variavel do peso total no elevador
         var resultado = H * 80 + M * 60
 
         //customisação do estilo da div (cor)

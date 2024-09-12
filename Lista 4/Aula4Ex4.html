@@ -8,7 +8,10 @@
 <body>
     <h1>Exercício 4</h1>
 
+    <!-- input do valor da pizza -->
     Valor da Pizza: <input id="input_pizza" type="text"> <br>
+
+    <!-- input da quantidade de amigos -->
     Quantidade de Amigos: <input id="input_amigos" type="text"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -22,6 +25,7 @@
 <script>
     //Função que irá rodar ao clicar no botão
     function calcular() {
+        //variavel do preço que cada amigo deve pagar
         var total = Number(input_pizza.value) / Number(input_amigos.value)
 
         //mensagem que irá aparecer na tela, usando a div no HTML

@@ -8,6 +8,7 @@
 <body>
     <h1>Exercício 5</h1>
 
+    <!-- input da quantidade de Kwh consumida no mês -->
     Quantidade de KWh consumida no mês: <input id="input_consumo" type="text"> <br>
 
     <!-- Botão para iniciar a função -->
@@ -17,8 +18,11 @@
 
 <script>
     //Função que irá rodar ao clicar no botão
-    function calcular() {    
+    function calcular() {
+        //variavel da conta a pagar por consumo de energia (Kwh * R$0.85)
         var total = Number(input_consumo.value) * 0.85
+
+        //variavel do desconto caso o total seja menor que R$100.00
         var desconto = total * 0.9
 
         if (total >= 100) {
