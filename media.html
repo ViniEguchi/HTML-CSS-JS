@@ -17,9 +17,9 @@
     Sprint 3 Continuada <input type="number" id="ipt_spr3C"> <br> <br>
     Projeto <input type="number" id="ipt_projeto"> <br> <br>
 
-    <button onclick="Media()">Media</button>
+    <button onclick="Media()">Media</button> <br>
     <button onclick="Atividade()">Falta atividade sprint 3</button> <br>
-    <button onclick="Continuada()">Falta continuada sprint 3</button>
+    <button onclick="Continuada()">Falta continuada sprint 3</button> <br>
     <button onclick="Projeto()">Falta projeto</button> <br> <br>
 
     <div id="div_mensagem"></div>
@@ -39,7 +39,9 @@
     var sprint_1 = 0;
     var sprint_2 = 0;
     var sprint_3 = 0;
+    var sprint_total = 0;
     var media = 0;
+    var passar = 0;
 
     function Media() {
         atividade_spr1 = Number(ipt_spr1A.value) * 0.3;
@@ -57,21 +59,69 @@
         media = ((sprint_1 + sprint_2 + sprint_3) / 3) * 0.4 + projeto;
 
         if (media >= 6) {
-            div_mensagem.innerHTML = `<b style="color: green;">${media}</b>`
+            div_mensagem.innerHTML = `<h1 style="color: green;">${media}</h1>`;
         } else {
-            div_mensagem.innerHTML = `<b style="color: red;">${media}</b>`
+            div_mensagem.innerHTML = `<h1 style="color: red;">${media}</h1>`;
         }
     }
 
     function Atividade() {
-        
+        atividade_spr1 = Number(ipt_spr1A.value) * 0.3;
+        integrada_spr1 = Number(ipt_spr1I.value) * 0.3;
+        continuada_spr1 = Number(ipt_spr1C.value) * 0.4;
+        atividade_spr2 = Number(ipt_spr2A.value) * 0.3;
+        continuada_spr2 = Number(ipt_spr2C.value) * 0.7;
+        atividade_spr3 = 0;
+        continuada_spr3 = Number(ipt_spr3C.value) * 0.7;
+        projeto = Number(ipt_projeto.value) * 0.6;
+
+        sprint_1 = atividade_spr1 + integrada_spr1 + continuada_spr1;
+        sprint_2 = atividade_spr2 + continuada_spr2;
+        sprint_3 = atividade_spr3 + continuada_spr3;
+        media = ((sprint_1 + sprint_2 + sprint_3) / 3) * 0.4 + projeto;
+
+        passar = (((6 - media) / 0.4) * 3) / 0.3;
+
+        div_mensagem.innerHTML = `<h1>${passar}</h1>`;
     }
 
     function Continuada() {
-        
+        atividade_spr1 = Number(ipt_spr1A.value) * 0.3;
+        integrada_spr1 = Number(ipt_spr1I.value) * 0.3;
+        continuada_spr1 = Number(ipt_spr1C.value) * 0.4;
+        atividade_spr2 = Number(ipt_spr2A.value) * 0.3;
+        continuada_spr2 = Number(ipt_spr2C.value) * 0.7;
+        atividade_spr3 = Number(ipt_spr3A.value) * 0.3;
+        continuada_spr3 = 0;
+        projeto = Number(ipt_projeto.value) * 0.6;
+
+        sprint_1 = atividade_spr1 + integrada_spr1 + continuada_spr1;
+        sprint_2 = atividade_spr2 + continuada_spr2;
+        sprint_3 = atividade_spr3 + continuada_spr3;
+        media = ((sprint_1 + sprint_2 + sprint_3) / 3) * 0.4 + projeto;
+
+        passar = (((6 - media) / 0.4) * 3) / 0.7;
+
+        div_mensagem.innerHTML = `<h1>${passar}</h1>`;
     }
 
     function Projeto() {
-        
+        atividade_spr1 = Number(ipt_spr1A.value) * 0.3;
+        integrada_spr1 = Number(ipt_spr1I.value) * 0.3;
+        continuada_spr1 = Number(ipt_spr1C.value) * 0.4;
+        atividade_spr2 = Number(ipt_spr2A.value) * 0.3;
+        continuada_spr2 = Number(ipt_spr2C.value) * 0.7;
+        atividade_spr3 = Number(ipt_spr3A.value) * 0.3;
+        continuada_spr3 = Number(ipt_spr3C.value) * 0.7;
+
+        sprint_1 = atividade_spr1 + integrada_spr1 + continuada_spr1;
+        sprint_2 = atividade_spr2 + continuada_spr2;
+        sprint_3 = atividade_spr3 + continuada_spr3;
+
+        sprint_total = (sprint_1 + sprint_2 + sprint_3) / 3; 
+
+        passar = (6 - [0.4 * sprint_total]) / 0.6;
+
+        div_mensagem.innerHTML = `<h1>${passar}</h1>`;
     }
 </script>
