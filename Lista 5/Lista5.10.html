@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 10</h1>
+
+    Consumo de energia mensal(Kwh): <input type="number" id="ipt_consumo"> <br>
+    Valor do Kwh(R$): <input type="number" id="ipt_valor"> <br>
+
+    <button onclick="calcular()">Calcular Conta</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var consumo = Number(ipt_consumo.value);
+        var valor = Number(ipt_valor.value);
+
+        var total = consumo * valor;
+        var multa = total * 1.1;
+
+        var mensagem = `O valor da conta totalizou R$`
+
+        if (total > 300) {
+            mensagem += `
+            ${multa} <br> 
+            Gastos excessivos, multa aplicada <br> 
+            Economize energia, sua conta está alta!
+            `
+        } else {
+            mensagem += `${total} <br> Gastos dentro do esperado`
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

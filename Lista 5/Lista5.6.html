@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 6</h1>
+
+    Time que torce (São Paulo, Palmeiras, Corinthians, Santos): <input type="text" id="ipt_time">
+
+    <button onclick="falar()">Fale sobre esse time</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function falar() {
+        var time = ipt_time.value
+
+        if (time == 'Corinthians') {
+            div_mensagem.style.color = 'white'
+            div_mensagem.innerHTML = `<div style="background-color: black;">Salve o Corinthians</div>`}
+        else if (time == 'Santos') {
+            div_mensagem.style.color = 'black'
+            div_mensagem.innerHTML = `<div style="background-color: white;">Agora quem dá a bola é o Santos</div>`}
+        else if (time == 'Palmeiras') {
+            div_mensagem.style.color = 'white'
+            div_mensagem.innerHTML = `<div style="background-color: green;">Salve o alviverde imponente</div>`}
+        if (time == 'São Paulo') {
+            div_mensagem.style.color = 'red'
+            div_mensagem.innerHTML = `<div style="background-color: black;">Salve o Tricolor paulista</div>`}
+    }
+</script>
