@@ -33,7 +33,7 @@
             Gastos excessivos, multa aplicada <br> 
             Economize energia, sua conta está alta!
             `
-        } else {
+        } else if (total <= 300) {
             mensagem += `${total} <br> Gastos dentro do esperado`
         }
         div_mensagem.innerHTML = mensagem;
