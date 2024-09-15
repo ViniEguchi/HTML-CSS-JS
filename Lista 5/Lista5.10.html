@@ -27,14 +27,12 @@
 
         var mensagem = `O valor da conta totalizou R$`
 
-        if (total > 300) {
-            mensagem += `
-            ${multa} <br> 
-            Gastos excessivos, multa aplicada <br> 
-            Economize energia, sua conta está alta!
-            `
-        } else if (total <= 300) {
+        if (consumo <= 300) {
             mensagem += `${total} <br> Gastos dentro do esperado`
+        } else if (consumo <= 500) {
+            mensagem += `${multa} <br> Gastos excessivos, multa aplicada`
+        } else {
+            mensagem += `${multa} <br> Gastos excessivos, multa aplicada <br> Economize energia, sua conta está alta!`
         }
         div_mensagem.innerHTML = mensagem;
     }
