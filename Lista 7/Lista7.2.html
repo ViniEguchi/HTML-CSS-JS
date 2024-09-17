@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 2</h1>
+
+    Nota do ENEM: <input type="number" id="ipt_enem"> <br>
+    Nota do vestibular: <input type="number" id="ipt_vestibular"> <br>
+
+    <button onclick="avaliar()">Avaliação</button>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var enem = Number(ipt_enem.value);
+        var vestibular = Number(ipt_vestibular.value);
+
+        if (enem >= 800 || vestibular >= 700) {
+            alert('Parabéns! Aprovado');
+        } else {
+            alert('Tente semestre que vem');
+        }
+    }
+</script>

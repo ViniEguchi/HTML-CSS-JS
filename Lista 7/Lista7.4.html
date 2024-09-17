@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 4</h1>
+
+    Modo de pagamento (dinheiro, débito, crédito ou boleto): <input type="text" id="ipt_pagar"> <br>
+
+    <button onclick="analisar()">Analisar compra</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var pagamento = ipt_pagar.value;
+
+        if (pagamento == 'dinheiro' || pagamento == 'débito') {
+            div_mensagem.innerHTML = 'Você terá que pagar a vista';
+        } else if (pagamento == 'boleto' || pagamento == 'crédito') {
+            div_mensagem.innerHTML = 'Pagamento poderá ser parcelado'
+        } else {
+            div_mensagem.innerHTML = 'Forma de pagamento invalida'
+        }
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 4</h1>
+
+    Hora do dia(modelo 24h): <input type="number" id="ipt_hora">
+
+    <button onclick="ver()">Ver recomendação</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var hora = Number(ipt_hora.value);
+        var mensagem = `O horário ${hora}h é adequado para assistir sua série favorita!`;
+
+        if (hora >= 19 && hora <= 21) {
+            mensagem = `Não é recomendável que você assista sua série favorita no horário ${hora}h!`;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
