@@ -10,10 +10,17 @@
 
     <p>Vertices: x0 y0 x1 y1</p>
 
-    Vertices x0 e y0 do retângulo1: <input type="number" id="ipt_x0r1"> <br> <br>
-    Vertices x1 e y1 do retângulo1: <input type="number" id="ipt_x1r1"> <br> <br>
-    Vertices x0 e y0 do retângulo2: <input type="number" id="ipt_x0r2"> <br> <br>
-    Vertices x1 e y1 do retângulo2: <input type="number" id="ipt_x1r2"> <br> <br>
+    <p>Retângulo 1:</p>
+    Vertice x0: <input type="number" id="ipt_x0r1"> <br>
+    Vertice y0: <input type="number" id="ipt_y0r1"> <br>
+    Vertice x1: <input type="number" id="ipt_x1r1"> <br>
+    Vertice y1: <input type="number" id="ipt_y1r1"> <br>
+
+    <p>Retângulo 2:</p>
+    Vertice x0: <input type="number" id="ipt_x0r2"> <br>
+    Vertice y0: <input type="number" id="ipt_y0r2"> <br>
+    Vertice x1: <input type="number" id="ipt_x1r2"> <br>
+    Vertice y1: <input type="number" id="ipt_y1r2"> <br>
 
     <button onclick="verificar()">Verificar Colisão</button> <br> <br>
 
@@ -25,27 +32,75 @@
     function verificar() {
         var x0R1 = Number(ipt_x0r1.value);
         var x1R1 = Number(ipt_x1r1.value);
+        var y0R1 = Number(ipt_y0r1.value);
+        var y1R1 = Number(ipt_y1r1.value);
+        
         var x0R2 = Number(ipt_x0r2.value);
         var x1R2 = Number(ipt_x1r2.value);
+        var y0R2 = Number(ipt_y0r2.value);
+        var y1R2 = Number(ipt_y1r2.value);
         
-        var mensagem = 0;
-
-        mensagem = `Elementos não colidem`;
+        var mensagem = `Elementos não colidem`;
 
         if (x0R1 == x0R2) {
-            if (x1R1 == x1R2) {
+            if (y0R1 == y0R2) {
                 mensagem = `Os elementos colidem`;
             }
         }
+
+        if (x1R1 == x1R2) {
+            if (y1R1 == y1R2) {
+                mensagem = `Os elementos colidem`;
+            }
+        }
+
+        if (x0R1 == x0R2) {
+            if (y1R1 == y1R2) {
+                mensagem = `Os elementos colidem`;
+            }
+        }
+
         if (x0R1 < x0R2) {
-            if (x1R1 < x1R2) {
-                if (x0R2 < x1R1) {
-                    mensagem = `Os elementos colidem`;
+            if (y0R1 < y0R2) {
+                if (x1R1 > x1R2) {
+                    if (y1R1 > y1R2) {
+                        mensagem = `Os elementos colidem`;
+                    }
                 }
             }
         }
 
-        div_mensagem.innerHTML = `Retângulo 1: x${x0R1} y${x0R1} x${x1R1} y${x1R1} <br>
-            Retângulo 2: x${x0R2} y${x0R2} x${x1R2} x${x1R2} <br>` + mensagem;
+        if (x0R1 == x0R2) {
+            if (y0R1 < y0R2) {
+                if (x1R1 < x1R2) {
+                    if (y1R1 == y1R2) {
+                        mensagem = `Os elementos colidem`;
+                    }
+                }
+            }
+        }
+
+        if (x0R1 == x0R2) {
+            if (y0R1 > y0R2) {
+                if (x1R1 < x1R2) {
+                    if (y1R1 < y1R2) {
+                        mensagem = `Os elementos colidem`;
+                    }
+                }
+            }
+        }
+
+        if (x0R1 > x0R2) {
+            if (y0R1 > y0R2) {
+                if (x1R1 == x1R2) {
+                    if (y1R1 < y1R2) {
+                        mensagem = `Os elementos colidem`;
+                    }
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = `Retângulo 1: x${x0R1} y${y0R1} x${x1R1} y${y1R1} <br>
+            Retângulo 2: x${x0R2} y${y0R2} x${x1R2} x${y1R2} <br>` + mensagem;
     }
 </script>
