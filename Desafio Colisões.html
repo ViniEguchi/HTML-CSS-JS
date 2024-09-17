@@ -42,58 +42,40 @@
         
         var mensagem = `Elementos não colidem`;
 
-        if (x0R1 == x0R2) {
-            if (y0R1 == y0R2) {
-                mensagem = `Os elementos colidem`;
-            }
-        }
-
-        if (x1R1 == x1R2) {
-            if (y1R1 == y1R2) {
-                mensagem = `Os elementos colidem`;
-            }
-        }
-
-        if (x0R1 == x0R2) {
-            if (y1R1 == y1R2) {
-                mensagem = `Os elementos colidem`;
-            }
-        }
-
-        if (x0R1 < x0R2) {
-            if (y0R1 < y0R2) {
-                if (x1R1 > x1R2) {
-                    if (y1R1 > y1R2) {
+        if (x0R1 <= x0R2) {
+            if (x0R2 <= x1R1) {
+                if (y0R1 <= y0R2) {
+                    if (y0R2 <= y1R1) {
                         mensagem = `Os elementos colidem`;
                     }
                 }
             }
         }
 
-        if (x0R1 == x0R2) {
-            if (y0R1 < y0R2) {
-                if (x1R1 < x1R2) {
-                    if (y1R1 == y1R2) {
+        if (x0R1 <= x1R2) {
+            if (x1R2 <= x1R1) {
+                if (y0R1 <= y1R2) {
+                    if (y1R2 <= y1R1) {
                         mensagem = `Os elementos colidem`;
                     }
                 }
             }
         }
 
-        if (x0R1 == x0R2) {
-            if (y0R1 > y0R2) {
-                if (x1R1 < x1R2) {
-                    if (y1R1 < y1R2) {
+        if (x0R2 <= x0R1) {
+            if (x0R1 <= x1R2) {
+                if (y0R2 <= y0R1) {
+                    if (y0R1 <= y1R2) {
                         mensagem = `Os elementos colidem`;
                     }
                 }
             }
         }
 
-        if (x0R1 > x0R2) {
-            if (y0R1 > y0R2) {
-                if (x1R1 == x1R2) {
-                    if (y1R1 < y1R2) {
+        if (x0R2 <= x1R1) {
+            if (x1R1 <= x1R2) {
+                if (y0R2 <= y1R1) {
+                    if (y1R1 <= y1R2) {
                         mensagem = `Os elementos colidem`;
                     }
                 }
