@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 7</h1>
+
+    <!-- input da quantidade de pães franceses -->
+    Pães franceses consumidos por dia: <input type="text" id="ipt_pao"> <br>
+    
+    <!-- input da quantidade de pacotes de bolacha -->
+    Pacotes de bolacha recheada consumidos por dia: <input type="text" id="ipt_bolacha"> <br>
+    
+    <!-- input da quantidade de achocolatados -->
+    Copos de achocolatado consumidos por dia: <input type="text" id="ipt_choc"> <br>
+
+    <!-- botão para iniciar a função -->
+    <button onclick="verificar()">Verificar calorias</button> <br>
+    
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    // função que irá rodar ao clicar no botão
+    function verificar() {
+        // variavel da quantidade de calorias dos pães
+        var pao = Number(ipt_pao.value) * 50;
+
+        // variavel da quantidade de calorias das bolachas
+        var bolacha = Number(ipt_bolacha.value) * 80;
+
+        // varivael da quantidade de calorias dos achocolatados
+        var choc = Number(ipt_choc.value) * 70;
+
+        // variavel do total de calorias
+        var total = pao + bolacha + choc;
+
+        if (total < 200) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Parabéns, vai ficar em forma!`
+        } else if (total < 400) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Cuidado, vai ficar menos saudável !`
+        } else {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Alerta crítico de saúde !!!`
+        }
+    }
+</script>

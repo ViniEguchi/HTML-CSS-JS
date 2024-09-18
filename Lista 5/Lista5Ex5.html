@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 5</h1>
+
+    <!-- input da nota do aluno -->
+    nota: <input type="number" id="ipt_nota">
+
+    <!-- botão para iniciar a função -->
+    <button onclick="classificar()">Classificar Aluno</button>
+</body>
+</html>
+
+<script>
+    // função que irá rodar ao clicar no botão
+    function classificar() {
+        // variavel da nota do aluno
+        var nota = Number(ipt_nota.value)
+
+        if (nota < 5) {
+            //alerta que será exibido na tela
+            alert('Aluno precisa de muita ajuda')
+        } else if (nota <= 7) {
+            //alerta que será exibido na tela
+            alert('Aluno na média')
+        } else if (nota <= 9.5) {
+            //alerta que será exibido na tela
+            alert('Aluno na acima da média')
+        } else {
+            //alerta que será exibido na tela
+            alert('Aluno fora da curva')
+        }
+    }
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 2</h1>
+
+    <!-- input da renda familiar mensal -->
+    renda familiar mensal: <input type="number" id="ipt_renda">
+
+    <!-- botão para iniciar a funçaõ -->
+    <button onclick="analisar()">Analisar renda</button> <br>
+
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    // função que irá rodar ao clicar no botão
+    function analisar() {
+        // variavel da renda familiar mensal
+        var renda = Number(ipt_renda.value)
+
+        if (renda <= 250) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Classe E`
+        } else if (renda <= 900) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Classe D`
+        } else if (renda <= 2500) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Classe C`
+        } else if (renda <= 9500) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Classe B`
+        } else {
+            //mensagem que irá aparecer na tela, usando a div no HTML
+            div_mensagem.innerHTML = `Classe A`
+        }
+    }
+</script>

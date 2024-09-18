@@ -8,33 +8,50 @@
 <body>
     <h1>Exercicio 10</h1>
 
+    <!-- input do consumo de energia -->
     Consumo de energia mensal(Kwh): <input type="number" id="ipt_consumo"> <br>
+    
+    <!-- input do custo de energia -->
     Valor do Kwh(R$): <input type="number" id="ipt_valor"> <br>
 
+    <!-- botão para iniciar a função -->
     <button onclick="calcular()">Calcular Conta</button> <br>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 </html>
 
 <script>
+    // função que irá rodar ao clicar no botão
     function calcular() {
+        // variavel do consumo de energia
         var consumo = Number(ipt_consumo.value);
+
+        // variavel do custo de energia
         var valor = Number(ipt_valor.value);
 
+        // variavel da conta de energia
         var total = consumo * valor;
+
+        // variavel da conta + a multa
         var multa = total * 1.1;
 
+        // variavel da mensagem
         var mensagem = `O valor da conta totalizou R$`
 
         if (consumo <= 300) {
+            // adicionando texto a variavel de mensagem
             mensagem += `${total} <br> Gastos dentro do esperado`
         } else if (consumo <= 500) {
+            // adicionando texto a variavel de mensagem
             mensagem += `${multa} <br> Gastos excessivos, multa aplicada`
         } else {
+            // adicionando texto a variavel de mensagem
             mensagem += `${multa} <br> Gastos excessivos, multa aplicada <br> Economize energia, sua conta está alta!`
         }
         
+        //mensagem que irá aparecer na tela, usando a div no HTML
         div_mensagem.innerHTML = mensagem;
     }
 </script>

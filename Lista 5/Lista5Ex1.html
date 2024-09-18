@@ -8,23 +8,31 @@
 <body>
     <h1>Exercicio 1</h1>
 
+    <!-- input da altura do usuario -->
     altura(cm): <input type="text" id="ipt_altura">
 
+    <!-- botão para iniciar a função -->
     <button onclick="analisar()">Analisar altura</button>
 
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
     <div id="div_mensagem"></div>
 </body>
 </html>
 
 <script>
+    // função que irá rodar ao clicar no botão
     function analisar() {
+        // variavel da altura do usuario
         var altura = Number(ipt_altura.value) / 100;
 
         if (altura <= 1.65) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Você pode ser piloto de corrida`;
         } else if (altura <= 1.80) {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Você pode ser jogador de futebol`;
         } else {
+            //mensagem que irá aparecer na tela, usando a div no HTML
             div_mensagem.innerHTML = `Você pode ser jogador de volei ou basquete`;
         }
     }

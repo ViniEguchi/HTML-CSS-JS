@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 6</h1>
+
+    <!-- input do time -->
+    Time que torce (São Paulo, Palmeiras, Corinthians, Santos): <input type="text" id="ipt_time">
+
+    <!-- botão para iniciar a função -->
+    <button onclick="falar()">Fale sobre esse time</button>
+
+    <!-- div de mensagem vazia, será usada para exibir uma mensagem na tela -->
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    // função que irá rodar ao clicar no botão
+    function falar() {
+        // variavel do time
+        var time = ipt_time.value
+
+        // variavel da mensagem
+        var mensagem = 0
+
+        if (time == 'Corinthians') {
+            // mudando a variavel de mensagem
+            mensagem = `<div style="background-color: black;color: white">Salve o Corinthians</div>`
+        }
+        else if (time == 'Santos') {
+            // mudando a variavel de mensagem
+            mensagem = `<div style="background-color: white;color: black">Agora quem dá a bola é o Santos</div>`
+        }
+        else if (time == 'Palmeiras') {
+            // mudando a variavel de mensagem
+            mensagem = `<div style="background-color: green;color: white">Salve o alviverde imponente</div>`
+        }
+        if (time == 'São Paulo') {
+            // mudando a variavel de mensagem
+            mensagem = `<div style="background-color: black;color: red">Salve o Tricolor paulista</div>`
+        }
+
+        //mensagem que irá aparecer na tela, usando a div no HTML
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
