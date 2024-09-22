@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 2</h1>
+
+    Altura(m): <input type="number" id="ipt_altura"> <br>
+
+    Cor de cabelo: <select name="cabelo" id="ipt_cabelo">
+        <option value="preto">Preto</option>
+        <option value="ruivo">Vermelho</option>
+        <option value="loiro">Amarelo</option>
+        <option value="castanho">Castanho</option>
+    </select> <br>
+
+    <button onclick="match()">Deu match?</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function match() {
+        var altura = Number(ipt_altura.value);
+        var cor_cabelo = ipt_cabelo.value;
+
+        if (altura < 1.85 && (cor_cabelo == 'castanho' || cor_cabelo == 'loiro')) {
+            div_mensagem.innerHTML = `<img src="https://cdn.pixabay.com/photo/2024/02/27/04/02/man-8599354_1280.png">`
+        } else {
+            div_mensagem.innerHTML = `<img src="https://img.freepik.com/vetores-premium/homem-chateado-e-infeliz-expressao-triste-o-conceito-de-tristeza-e-solidao_165429-857.jpg?semt=ais_hybrid">`
+        }
+    }
+</script>

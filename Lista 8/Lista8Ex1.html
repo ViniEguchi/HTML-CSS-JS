@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        color: aliceblue;
+        background-color: black;
+    }
+</style>
+
+<body>
+    <h1>Exercicio 1</h1>
+
+    Nota do atendimento: <input type="number" id="ipt_nota">
+
+    <button onclick="avaliar()">Avaliar atendimento</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var nota = Number(ipt_nota.value);
+
+        if (nota > 10 || nota < 0) {
+            div_mensagem.innerHTML = 'Nota invalida';
+        } else if (nota >= 0 && nota < 5) {
+            div_mensagem.innerHTML = 'Não aprovado'
+        } else if (nota >= 5 && nota < 6) {
+            div_mensagem.innerHTML = 'Neutro'
+        } else {
+            div_mensagem.innerHTML = 'Aprovado'
+        }
+    }
+</script>

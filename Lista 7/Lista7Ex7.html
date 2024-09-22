@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 7</h1>
+
+    <h1>Calculadora de cansaço aprimorada do aluno SPTech</h1>
+
+    Meio de transporte: 
+    <select id="ipt_transporte">
+        <option value="Carro">Carro</option>
+        <option value="Metrô">Metrô</option>
+        <option value="Ônibus">Ônibus</option>
+        <option value="Bicicleta">Bicicleta</option>
+    </select>
+
+    Distancia da faculdade (KM): <input type="number" id="ipt_km">
+
+    <button onclick="nivel()">Nivel de cansaço</button>
+</body>
+</html>
+
+<script>
+    function nivel() {
+        var km = Number(ipt_km.value);
+        var transporte = ipt_transporte.value;
+
+        if (km <= 10) {
+            if (transporte == 'Carro' || transporte == 'Metrô' || transporte == 'Ônibus') {
+                alert('Tá tranks...');
+            } else {
+                alert('É...um pouco cansado...');
+            }
+        } else {
+            if (transporte == "Carro") {
+                alert('É...um pouco cansado...');
+            } else if (transporte == 'Ônibus' || transporte == 'Metrô') {
+                alert('Bem cansado...');
+            } else {
+                alert('Vish... tá só o pó...');
+            }
+        }
+    }
+</script>

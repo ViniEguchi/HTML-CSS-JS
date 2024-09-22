@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 9</h1>
+
+    Marca da TV (Samsung, LG, Mondial ou Britânia): <input type="text" id="ipt_marca"> <br>
+    preço da TV: <input type="number" id="ipt_preco"> <br>
+
+    <button onclick="analisar()">Analisar compra</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var marca = ipt_marca.value;
+        var preco = Number(ipt_preco.value);
+
+        var mensagem = ''
+
+        if (preco < 800 || preco > 2000) {
+            mensagem = `TV fora da faixa de preço <br>`
+
+            if (preco < 800) {
+                mensagem += `Preço baixo demais!`
+            } else {
+                mensagem += `TV cara demais, infelizmente`
+            }
+        } else if (marca == 'Mondial' || marca == 'Britânia') {
+            mensagem = `Na faixa de preço, porém marca não confiável`
+        } else {
+            mensagem = `Essa TV pode entrar na sua lista!`
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

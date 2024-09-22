@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 11</h1>
+
+    Quantidade de passagens: <input type="number" id="ipt_qtd">
+
+    <button onclick="comprar()">Comprar</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function comprar() {
+        var qtd = Number(ipt_qtd.value);
+        var total = 0;
+
+        var mensagem = ''
+
+        if (qtd >= 8 && qtd <= 50) {
+            if (qtd <= 19) {
+                total = (4.4 * 0.97) * qtd;
+                mensagem = `Total a pagar: R$${total}`;
+            } else if (qtd < 50) {
+                total = (4.4 * 0.95) * qtd;
+                mensagem = `Total a pagar: R$${total}`;
+            } else {
+                total = (4.4 * 0.93) * qtd;
+                mensagem = `Total a pagar: R$${total}`;
+            }
+        } else {
+            alert('Quantidade inválida para o Fidelidade!')
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

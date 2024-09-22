@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 9</h1>
+
+    Altura inicial (cm): <input type="number" id="ipt_inicial"> <br>
+    Altura final (cm): <input type="number" id="ipt_final"> <br> <br>
+
+    Nome do candidato: <input type="text" id="ipt_nome"> <br>
+    Altura do candidato (cm): <input type="number" id="ipt_candidato"> <br>
+
+    <button onclick="verificar()">Varificar Candidato</button> <br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var altura_i = Number(ipt_inicial.value);
+        var altura_f = Number(ipt_final.value);
+        var candidato = Number(ipt_candidato.value);
+
+        var nome = ipt_nome.value;
+
+        var mensagem = '';
+
+        if (altura_i < 100) {
+            mensagem = `Intervalo da altura de seleção é inválida! 
+            A altura inicial deve ser maior que 1 e a altura final deve ser maior que a altura inicial`;
+        } else if (altura_f < altura_i) {
+            mensagem = `Intervalo da altura de seleção é inválida! 
+            A altura inicial deve ser maior que 1 e a altura final deve ser maior que a altura inicial`;
+        } else if (candidato > altura_i && candidato < altura_f) {
+            mensagem = `O candidato ${nome}, com altura de ${candidato} metros, participará do processo de seleção de piloto`;
+        } else {
+            mensagem = `Infelizmente, o candidato ${nome}, com altura de ${candidato} metros, não atende os requisitos da seleção`;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
