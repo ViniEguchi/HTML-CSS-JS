@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 5</h1>
+
+    <button onclick="numero()">Numeros Cabalísticos</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function numero() {
+        var mensagem = '';
+
+        for (var contador = 1; contador < 30; contador += 1) {
+
+            if (contador == 3 || contador == 4 || contador == 7 || contador == 10 || contador == 12 ) {
+                mensagem += '';
+            } else {
+                mensagem += `${contador} <br>`;
+            }
+        }
+        
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

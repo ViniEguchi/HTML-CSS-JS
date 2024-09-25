@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 4</h1>
+
+    <Button onclick="pares()">S2 pares</Button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function pares() {
+        var mensagem = '';
+        for (var contador = 0; contador < 101; contador+=2) {
+            mensagem += `${contador} <br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
