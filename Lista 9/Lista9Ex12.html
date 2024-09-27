@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    div {
+        color: aliceblue;
+    }
+</style>
+
+<body>
+    <h1>Exercicio 12</h1>
+
+    Tabuada:
+    <select id="select_tabuada">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+    </select> <br>
+
+    Até que número a tabuada deve ser construida?: <input type="number" id="ipt_limite"> <br>
+
+    <button onclick="tabuada()">Ver tabuada</button>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function tabuada() {
+        var tabuada = Number(select_tabuada.value);
+        var limite = Number(ipt_limite.value);
+
+        var mensagem = ''
+
+        for (var contador = 0; contador <= limite; contador++) {
+            if (contador % 2 == 0) {
+                mensagem += `<span style="background-color: blue;">
+                    ${tabuada} X ${contador} = ${tabuada * contador}</span> <br>`;
+            } else {
+                mensagem += `<span style="background-color: red;">
+                    ${tabuada} X ${contador} = ${tabuada * contador}</span> <br>`;
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

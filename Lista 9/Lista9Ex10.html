@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 10</h1>
+
+    Numero do inicio do intervalo: <input type="number" id="ipt_inicio"><br>
+    Numero do fim do intervalo: <input type="number" id="ipt_fim"><br>
+
+    <button onclick="par()">S2 pares</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function par() {
+        var inicio = Number(ipt_inicio.value);
+        var fim = Number(ipt_fim.value);
+
+        var mensagem = '';
+
+        if (inicio > fim) {
+            alert('O inicio do intervalo deve ser maior que o final do intervalo');
+        } else {
+            for (var contador = inicio; contador <= fim; contador++) {
+                if (contador % 2 == 0) {
+                    mensagem += `${contador} <br>`;
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

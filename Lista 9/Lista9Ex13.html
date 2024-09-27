@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 13</h1>
+
+    De quantos em quantos dias você faz musculação? <input type="number" id="ipt_dias"> <br>
+
+    <button onclick="rotina()">Exibir rotina mensal</button>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function rotina() {
+        var intervalo = Number(ipt_dias.value);
+
+        var mensagem = '';
+
+        for (var contador = 0; contador < 30; contador++) {
+            if (contador % intervalo == 0) {
+                mensagem += `Dia ${contador + 1} - Musculação <br> <br>`;
+            } else {
+                mensagem += `Dia ${contador + 1} - Comer, dormir etc <br> <br>`;
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

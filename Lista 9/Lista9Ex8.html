@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 8</h1>
+
+    Número: <input type="number" id="ipt_numero"> <br>
+
+    <button onclick="sete()">Viva o 7!</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function sete() {
+        var numero = Number(ipt_numero.value);
+        var mensagem = "";
+
+        if (numero > 200 || numero < 0) {
+            alert('numero invalido, deve estar entre 0 e 200!')
+        } else {
+            for (var contador = 0; contador <= numero; contador++) {
+                if (contador % 7 == 0) {
+                    mensagem += `${contador} <br>`;
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
