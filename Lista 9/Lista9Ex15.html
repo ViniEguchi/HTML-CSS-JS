@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 15</h1>
+
+    idade: <input type="number" id="ipt_idade" onkeyup="idade()">
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function idade() {
+        var idade = Number(ipt_idade.value);
+
+        var mensagem = '';
+
+        if (idade < 0) {
+            mensagem = 'Digite uma idade valida';
+        } else {
+            for (var contador = 0; contador <= idade && contador < 5; contador++) {
+                mensagem += `${contador} anos(Primeira infância) <br>`;
+            }
+            for (var contador = 5; contador <= idade && contador < 7; contador++) {
+                mensagem += `${contador} anos(Pré-escola) <br>`;
+            }
+            for (var contador = 7; contador <= idade && contador < 11; contador++) {
+                mensagem += `${contador} anos(Segunda infância) <br>`;
+            }
+            for (var contador = 11; contador <= idade && contador < 19; contador++) {
+                mensagem += `${contador} anos(Adolescência) <br>`;
+            }
+            for (var contador = 19; contador <= idade && contador < 51; contador++) {
+                mensagem += `${contador} anos(Adulto) <br>`;
+            }
+            for (var contador = 51; contador <= idade && contador < 101; contador++) {
+                mensagem += `${contador} anos(Melhor idade) <br>`;
+            }
+            for (var contador = 101; contador <= idade; contador++) {
+                mensagem += `${contador} anos(Matusalém) <br>`;
+            }
+
+            mensagem += `Idade: ${idade}`;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

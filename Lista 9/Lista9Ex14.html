@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 14</h1>
+
+    Informar o intervalo de numeros: <br>
+    primeiro numero: <input type="number" id="ipt_primeiro"> <br>
+    segundo numero: <input type="number" id="ipt_segundo"> <br>
+
+    <button onclick="curtir()">Curto 3 e 5</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function curtir() {
+        var primeiro = Number(ipt_primeiro.value);
+        var segundo = Number(ipt_segundo.value);
+    
+        var mensagem = '';
+    
+        if (primeiro >= segundo) {
+            mensagem = `O segundo numero precisa ser maior que o primeiro!`;
+        } else {
+            for (var contador = primeiro; contador <= segundo; contador++) {
+                if (contador % 3 == 0 && contador % 5 == 0) {
+                    mensagem += 'É TRI!É PENTA! <br>';
+                } else if (contador % 3 == 0) {
+                    mensagem += 'É TRI! <br>';
+                } else if (contador % 5 == 0) {
+                    mensagem += 'É PENTA! <br>';
+                } else {
+                    mensagem += `${contador} <br>`;
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    img {
+        width: 20px;
+    }
+</style>
+
+<body>
+    <h1>Exercicio 22</h1>
+
+    Quantidade de depósitos no banco: <input type="number" id="ipt_deposito"> <br>
+    Valor dos depósitos: <input type="number" id="ipt_valor"> <br>
+
+    <button onclick="grana()">Acompanhar grana</button>
+
+    <div id="div_mensagem"></div>
+    <img src="">
+</body>
+</html>
+
+<script>
+    function grana() {
+        var deposito = Number(ipt_deposito.value);
+        var valor = Number(ipt_valor.value);
+        var total = 0;
+
+        var mensagem = '';
+
+        for (var contador = 1; contador <= deposito; contador ++) {
+            total += valor;
+
+            if (contador < 3) {
+                
+            } else if (contador % 3 == 0) {
+                total *= 1.01;
+            }
+            
+            mensagem += `<br> ${contador}° Mês: R$${total}`;
+            
+            if (contador % 3 == 0) {
+                mensagem += `<img src="https://media.istockphoto.com/id/1295967422/pt/vetorial/five-point-star-vector-icon-isolated-gold-star-rating-flat-symbol-vector.jpg?s=612x612&w=0&k=20&c=PHq95jOU5Ef1_t-rbXzygPEdBAbeocBle4ma7BxFFB4=">`
+            }
+        }
+
+        mensagem += `<br> Total guardado: R$${total}`;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    img {
+        width: 150px;
+    }
+</style>
+
+<body>
+    <h1>Exercicio 18</h1>
+
+    Quantidade aproximada de Coca-Cola consumida na vida(latas): <input type="number" id="ipt_latas"> <br>
+    
+    <button onclick="ver()">Ver quantidade</button> <br>
+
+    <div id="div_mensagem"></div>
+
+    <img src="">
+</body>
+</html>
+
+<script>
+    function ver() {
+        var qtd = Number(ipt_latas.value);
+
+        var mensagem = '';
+
+        for (var contador = 0; contador < qtd; contador++) {
+            mensagem += `<img src="https://crsupermercados.com.br/cdn/shop/files/coca_350ml_800x.png?v=1700754095">`;
+        }
+
+        div_mensagem.innerHTML = mensagem
+    }
+</script>

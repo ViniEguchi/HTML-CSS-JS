@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 16</h1>
+
+    Quantidade de pessoas que vão entrar no carro: <input type="number" id="ipt_qtd"> <br>
+
+    <button onclick="carona()">#Partiu Carona</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function carona() {
+        var qtd = Number(ipt_qtd.value);
+
+        var mensagem = '';
+
+        for (var contador = 1; contador <= qtd; contador++) {
+            if (contador == 1) {
+                mensagem += `Entrou o ${contador}° passageiro (que é o(a) motorista)<br>`;
+            } else if (contador <= 5) {
+                mensagem += `Entrou o ${contador}° passageiro <br>`;
+            } else {
+                mensagem += `O ${contador}° passageiro terá que esperar! <br>`;
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

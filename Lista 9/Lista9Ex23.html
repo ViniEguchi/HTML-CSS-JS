@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 23</h1>
+
+    Quantidade de Elefantes: <input type="text" id="ipt_qtd">
+
+    <button onclick="atazanar()">Atazanar a médium</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function atazanar() {
+        var qtd = Number(ipt_qtd.value);
+
+        var mensagem = '';
+        var elefante = 'incomodam, ';
+
+        for (var contador = 2; (contador) <= qtd; contador++) {
+            mensagem += `1 Elefante incomoda muita gente <br>`;
+
+            elefante += 'incomodam, ';
+
+            mensagem += `${contador} Elefantes ${elefante} muito mais <br>`;
+        }
+
+        if (qtd == 1) {
+            mensagem += `1 Elefante incomoda muita gente <br>`;
+        }
+
+        if (qtd <= 0) {
+            mensagem = 'Não tem elefante para atazanar a médium';
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
