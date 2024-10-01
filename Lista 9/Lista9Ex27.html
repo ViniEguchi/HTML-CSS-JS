@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 27</h1>
+
+    Número limite: <input type="number" id="ipt_limite"> <br>
+
+    Número para teste de divisibilidade: <input type="number" id="ipt_numTeste"> <br>
+
+    <button onclick="somar()">Somar números</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function somar() {
+        var limite = Number(ipt_limite.value);
+        var num = Number(ipt_numTeste.value);
+        var soma = 0;
+
+        var mensagem = '';
+
+        if (limite < 0 || num > limite || num < 1) {
+            alert('Ou o número limite ou o número teste são invalidos');
+        } else {
+            for (var cont = 1; cont <= limite; cont++) {
+                if (cont % num == 0) {
+                    mensagem += `${cont} <br>`;
+
+                    soma += cont;
+                }
+            }
+            mensagem += `Soma dos Múltiplos: ${soma}`;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

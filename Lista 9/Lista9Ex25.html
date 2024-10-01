@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 25</h1>
+
+    Número: <input type="number" id="ipt_numero">
+
+    <button onclick="ver()">Ver divisores</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var n = Number(ipt_numero.value);
+        var ciclo = 0;
+
+        var mensagem = '';
+
+        if (n < 0 || n > 100) {
+            alert('O numero deve estar entre 0 e 100')
+        } else {
+            for (var cont = 1; cont <= n; cont++) {
+                ciclo = 0;
+                if (n % cont == 0) {
+                    for (var cont2 = 0; cont2 <= cont; cont2++) {
+                        if (cont % cont2 == 0) {
+                            ciclo++
+                        }
+                    }
+                    if (ciclo == 2) {
+                        mensagem += `O número ${cont} é um número primo <br>`;
+                    } else {
+                        mensagem += `${cont} <br>`;
+                    }
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

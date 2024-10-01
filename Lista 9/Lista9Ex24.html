@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 24</h1>
+
+    Número: <input type="number" id="ipt_numero">
+
+    <button onclick="ver()">Ver divisores</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var n = Number(ipt_numero.value);
+
+        var mensagem = '';
+
+        if (n < 0 || n > 100) {
+            alert('O numero deve estar entre 0 e 100')
+        } else {
+            for (var contador = 1; contador <= n; contador++) {
+                if (n % contador == 0) {
+                    mensagem += `${contador} <br>`;
+                }
+            }
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

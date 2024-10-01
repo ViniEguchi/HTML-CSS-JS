@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 28</h1>
+
+    Número do limite inferior: <input type="number" id="ipt_inferior"> <br>
+    Número do limite superior: <input type="number" id="ipt_superior"> <br>
+    Número para testar a divisibilidade: <input type="number" id="ipt_teste"> <br>
+
+    <button onclick="contar()">Contar</button>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function contar() {
+        var superior = Number(ipt_superior.value);
+        var inferior = Number(ipt_inferior.value);
+        var teste = Number(ipt_teste.value);
+
+        var mensagem = '';
+
+        var ciclo = 0;
+        var soma = 0;
+        var media = 0;
+        var menor = 0;
+        var maior = 0;
+
+        if (inferior < 1) {
+            mensagem = `O número inferior é menor que 1`;
+        } else if (teste < 3 || teste > 10) {
+            mensagem = `O número teste não está entre 3 e 10`;
+        } else if (superior > 100) {
+            mensagem = `O número superior é maior que 100`;
+        } else if (inferior > superior) {
+            mensagem = `O número inferior é maior que o superior`;
+        } else {
+            for (var cont = 1; cont <= superior; cont++) {
+                if (cont % teste == 0) {
+                    mensagem += `${cont} <br>`;
+
+                    if (ciclo == 0) {
+                        menor = cont;
+                    }
+
+                    ciclo++;
+
+                    soma += cont;
+
+                    maior = cont;
+                }
+            }
+            media = soma / ciclo;
+
+            mensagem += `Quantidade Total de Números Exibidos: ${ciclo} <br>`
+            mensagem += `Somatória dos Números Exibidos: ${soma} <br>`
+            mensagem += `Média dos Números Exibidos: ${media} <br>`
+            mensagem += `Maior Número Exibido: ${maior} <br>`
+            mensagem += `Menor Número Exibido: ${menor} <br>`
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

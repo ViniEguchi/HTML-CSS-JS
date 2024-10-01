@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 26</h1>
+
+    Número: <input type="number" id="ipt_num">
+
+    <button onclick="pares()">Somar pares</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function pares() {
+        var n = Number(ipt_num.value);
+        var soma = 0;
+
+        var mensagem = '';
+
+        if (n < 10 || n > 500) {
+            alert('O número deve estar entre 10 e 500');
+        } else {
+            for (var cont = 0; cont <= n; cont++) {
+                if (cont % 2 == 0) {
+                    mensagem += `${cont} <br>`;
+
+                    soma += cont;
+                }
+
+            }
+        }
+
+        mensagem += `Soma dos pares = ${soma}`;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
