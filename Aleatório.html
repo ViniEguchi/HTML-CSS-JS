@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background-color: black;
+        color: aliceblue;
+    }
+</style>
+
+<body>
+    Número minimo: <input type="number" id="ipt_min"> <br>
+    Númeor maximo: <input type="number" id="ipt_max"> <br>
+
+    <button onclick="gerar()">Gerar Aleatorio</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function gerar() {
+        var mensagem = '';
+
+        var min = Number(ipt_min.value);
+        var max = Number(ipt_max.value);
+
+        var aleatorio = Math.random();
+        mensagem = `Aleatório gerado: ${aleatorio} <br>`;
+
+        var zero_quinze = aleatorio * 10 + 5;
+        mensagem += `Aleatório cinco_quinze: ${zero_quinze} <br>`;
+
+        var aleatorio_solicitado = aleatorio * (max - min) + min;
+        mensagem += `Aleatório solicitado: ${aleatorio_solicitado} <br>`
+
+        var aleatorio_inteiro = aleatorio_solicitado.toFixed(0);
+        mensagem += `Aleatório inteiro: ${aleatorio_inteiro} <br>`;
+
+        div_msg.innerHTML = mensagem;
+    }
+</script>
