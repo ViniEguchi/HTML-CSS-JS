@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Episódio que deseja começar assistindo: <input type="number" id="ipt_ep"> <br>
+    Quantidade de tempo disponivel: <input type="number" id="ipt_tempo"> <br>
+
+    Unidade de tempo em:
+    <select id="select_unidadeTempo">
+        <option>Minutos</option>
+        <option>Horas</option>
+    </select> <br>
+
+    Pular abertura?
+    <select id="select_abertura">
+        <option>Não</option>
+        <option>Sim</option>
+    </select> <br>
+
+    Pular encerramento?
+    <select id="select_encerramento">
+        <option>Não</option>
+        <option>Sim</option>
+    </select> <br>
+
+    <button onclick="assistir()">Assitir Episódios</button>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+    function assistir() {
+        var ep = Number(ipt_ep.value);
+        var tempo = Number(ipt_tempo.value);
+        var unidTempo = select_unidadeTempo.value;
+        var abertura = select_abertura.value;
+        var encerramento = select_encerramento.value;
+
+        var qtdEp = 0
+
+        var minCorridos = 0;
+
+        var mensagem = '';
+
+        if (unidTempo == 'Horas') {
+            tempo *= 60;
+        }
+
+        if (ep > 1000) {
+            alert('O número do episódio é inválido')
+        } else if (tempo <= 0) {
+            alert('Como vai assistir se não tem tempo?')
+        } else {
+            if (abertura == 'Não' && encerramento == 'Não') {
+                qtdEp = tempo / 24;
+
+                for (var cont = ep; minCorridos < tempo; cont++) {
+                    mensagem += `Episódio: ${cont} <br>`;
+
+                    for (var cont2 = 1; cont2 <= tempo && cont2 <= 24 && minCorridos < tempo; cont2++) {
+                        if (cont2 <= 2) {
+                            mensagem += `Minuto ${cont2}: Assitindo abertura <br>`;
+                        } else if (cont2 <= 22) {
+                            mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
+                        } else {
+                            mensagem += `Minuto ${cont2}: Assitindo encerramento <br>`;
+                        }
+
+                        minCorridos++;
+                    }
+
+                    mensagem += `<br>`;
+                }
+            } else if (abertura == "Sim" && encerramento == 'Não') {
+                qtdEp = tempo / 22;
+
+                for (var cont = ep; minCorridos < tempo; cont++) {
+                    mensagem += `Episódio: ${cont} <br>`;
+
+                    for (var cont2 = 1; cont2 < tempo && cont2 <= 22 && minCorridos < tempo; cont2++) {
+                        if (cont2 <= 20) {
+                            mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
+                        } else {
+                            mensagem += `Minuto ${cont2}: Assitindo encerramento <br>`;
+                        }
+
+                        minCorridos++;
+                    }
+
+                    mensagem += `<br>`;
+                }
+            } else if (abertura == 'Não' && encerramento == "Sim") {
+                qtdEp = tempo / 22;
+
+                for (var cont = ep; minCorridos < tempo; cont++) {
+                    mensagem += `Episódio: ${cont} <br>`;
+
+                    for (var cont2 = 1; cont2 < tempo && cont2 <= 22 && minCorridos < tempo; cont2++) {
+                        if (cont2 <= 2) {
+                            mensagem += `Minuto ${cont2}: Assitindo abertura <br>`;
+                        } else {
+                            mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
+                        }
+
+                        minCorridos++;
+                    }
+
+                    mensagem += `<br>`;
+                }
+            } else {
+                qtdEp = tempo / 20;
+
+                for (var cont = ep; minCorridos < tempo; cont++) {
+                    mensagem += `Episódio: ${cont} <br>`;
+
+                    for (var cont2 = 1; cont2 < tempo && cont2 <= 20 && minCorridos < tempo; cont2++) {
+                        mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
+                        
+                        minCorridos++;
+                    }
+
+                    mensagem += `<br>`;
+                }
+            }
+        }
+        mensagem += `Fim dos Episódios! <br> Foram assistidos: ${qtdEp} episódios`;
+
+        div_msg.innerHTML = mensagem;
+    }
+</script>
