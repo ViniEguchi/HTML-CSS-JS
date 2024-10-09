@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 17</h1>
+
+    Nome: <input type="text" id="ipt_nome"> <br>
+    Número da sorte 1: <input type="number" id="ipt_num1"> <br>
+    Número da sorte 2: <input type="number" id="ipt_num2"> <br>
+    Número da sorte 3: <input type="number" id="ipt_num3"> <br>
+
+    <button onclick="sortear()">Sortear</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    var cont = 0;
+
+    function sortear() {
+        var nome = ipt_nome.value;
+        var sorte1 = Number(ipt_num1.value);
+        var sorte2 = Number(ipt_num2.value);
+        var sorte3 = Number(ipt_num3.value);
+        var aleatorio = Math.floor(Math.random() * 99 + 1);
+
+        var msg = '';
+        
+        if (sorte1 < 1 || sorte1 > 100 || sorte2 < 1 || sorte2 > 100 || sorte3 < 1 || sorte3 > 100) {
+            alert('Favor inserir um número entre 1 e 100');
+        } else {
+            cont++;
+
+            if (sorte1 == aleatorio) {
+                msg = `Parabéns, ${nome} o seu número da sorte ${sorte1} foi sorteado após ${cont} sorteios!`;
+            } else if (sorte2 == aleatorio) {
+                msg = `Parabéns, ${nome} o seu número da sorte ${sorte2} foi sorteado após ${cont} sorteios!`
+            } else if (sorte3 == aleatorio) {
+                msg = `Parabéns, ${nome} o seu número da sorte ${sorte3} foi sorteado após ${cont} sorteios!`
+            }
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>

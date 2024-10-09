@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 12</h1>
+
+    <button onclick="avaliar()">Avaliar</button> <button onclick="verificar()">Verificar Média</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    var nota = 0;
+    var cont = 0;
+    var media = 0;
+
+    function avaliar() {
+        var aleatorio = Math.random() * 5;
+        nota = aleatorio.toFixed(1);
+        cont++;
+        media += Number(nota);
+        
+        var mensagem = `Nota recebida: ${nota} <br>`;
+        
+        if (nota <= 0.5) {
+            mensagem += `<img src="./Emoji/muito triste.jpg"> <br>`;
+        } else if (nota <= 1.5) {
+            mensagem += `<img src="./Emoji/triste.jpg"> <br>`;
+        } else if (nota <= 3.5) {
+            mensagem += `<img src="./Emoji/neutro.jpg"> <br>`;
+        } else if (nota <= 4.5) {
+            mensagem += `<img src="./Emoji/feliz.jpg"> <br>`;
+        } else {
+            mensagem += `<img src="./Emoji/muito feliz.jpg"> <br>`;
+        }
+
+        div_msg.innerHTML = mensagem;
+    }
+
+    function verificar() {
+        media /= cont;
+
+        var mensagem = `Média geral: ${media} <br>`
+
+        if (media <= 0.5) {
+            mensagem += `<img src="./Emoji/muito triste.jpg"> <br>`;
+        } else if (media <= 1.5) {
+            mensagem += `<img src="./Emoji/triste.jpg"> <br>`;
+        } else if (media <= 3.5) {
+            mensagem += `<img src="./Emoji/neutro.jpg"> <br>`;
+        } else if (media <= 4.5) {
+            mensagem += `<img src="./Emoji/feliz.jpg"> <br>`;
+        } else {
+            mensagem += `<img src="./Emoji/muito feliz.jpg"> <br>`;
+        }
+
+        div_msg.innerHTML += mensagem;
+    }
+</script>

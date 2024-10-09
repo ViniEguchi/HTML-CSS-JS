@@ -27,14 +27,14 @@
         var mensagem = '';
 
         if (n < 0 || n > 100) {
-            alert('O numero deve estar entre 0 e 100')
+            alert('O numero deve estar entre 0 e 100');
         } else {
             for (var cont = 1; cont <= n; cont++) {
                 ciclo = 0;
                 if (n % cont == 0) {
                     for (var cont2 = 0; cont2 <= cont; cont2++) {
                         if (cont % cont2 == 0) {
-                            ciclo++
+                            ciclo++;
                         }
                     }
                     if (ciclo == 2) {
@@ -42,6 +42,7 @@
                     } else {
                         mensagem += `${cont} <br>`;
                     }
+                    console.log(mensagem);
                 }
             }
         }

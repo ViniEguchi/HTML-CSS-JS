@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 14</h1>
+
+    <button onclick="ver()">Ver a Lua</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function ver() {
+        var aleatorio = Math.random() * 30 + 1;
+        var dia = Math.floor(aleatorio);
+
+        var lua = ``;
+
+        var mensagem = ``;
+
+        if (dia <= 7) {
+            lua = `Lua nova`;
+        } else if (dia <= 16) {
+            lua = `Lua cheia`;
+        } else if (dia <= 22) {
+            lua = `Lua minguante`;
+        } else {
+            lua = `Lua crescente`;
+        }
+
+        mensagem = `<img src="./Lua/${lua}.jpg">`;
+
+        div_msg.innerHTML = mensagem;
+    }
+</script>

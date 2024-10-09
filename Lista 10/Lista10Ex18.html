@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 18</h1>
+
+    <div id="div_jogador">Jogador 1: 0 <br> Jogador 2: 0 <br> Empate: 0</div> <br>
+
+    <button onclick="jogar()">Jogar</button>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    var jogador1 = 0;
+    var jogador2 = 0;
+    var empate = 0;
+
+    function jogar() {
+        var aleatorio1 = Math.floor(Math.random() * 5 + 1);
+        var aleatorio2 = Math.floor(Math.random() * 5 + 1);
+        var msg = '';
+
+        if (aleatorio1 == aleatorio2) {
+            empate++;
+        } else if (aleatorio1 > aleatorio2) {
+            jogador1++;
+        } else {
+            jogador2++
+        }
+
+        div_jogador.innerHTML = `Jogador 1: ${jogador1} <br> Jogador 2: ${jogador2} <br> Empate: ${empate}`
+
+        if (jogador1 == jogador2) {
+            msg = `O jogo está empatado!`;
+        } else if (jogador1 > jogador2) {
+            msg = `O jogador 1 está vencendo!`;
+        } else {
+            msg = `O jogador 2 está vencendo!`;
+        }
+
+        div_resultado.innerHTML = msg;
+    }
+</script>

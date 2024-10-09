@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    img {
+        height: 50px;
+    }
+</style>
+
+<body>
+    <h1>Exercicio 5</h1>
+
+    <button onclick="jogar()">Jogar</button>
+
+    <div id="div_img1"></div>
+    <div id="div_img2"></div>
+    
+    <br>
+    <br>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    var pontos1 = 0;
+    var pontos2 = 0;
+
+    function jogar() {
+        var aleatorio = Math.random();
+        var aleatorio2 = Math.random();
+
+        var jogador1 = '';
+        var jogador2 = '';
+
+        var mensagem = '';
+
+        if (aleatorio <= 0.33) {
+            jogador1 = 'pedra';
+        } else if (aleatorio <= 0.66) {
+            jogador1 = 'papel';
+        } else {
+            jogador1 = 'tesoura';
+        }
+
+        if (aleatorio2 <= 0.33) {
+            jogador2 = 'pedra';
+        } else if (aleatorio2 <= 0.66) {
+            jogador2 = 'papel';
+        } else {
+            jogador2 = 'tesoura';
+        }
+
+        mensagem += `<img src="${jogador1}.jpg"> <br>`;
+
+        mensagem += `<img src="${jogador2}.jpg"> <br>`;
+
+        if (jogador1 == jogador2) {
+            mensagem += `O jogo empatou! <br>`;
+        } else if (
+            jogador1 == 'pedra' && jogador2 == 'tesoura' ||
+            jogador1 == 'tesoura' && jogador2 == 'papel' ||
+            jogador1 == 'papel' && jogador2 == 'pedra'
+        ) {
+            mensagem += `O jogador 1 ganhou! <br>`;
+            pontos1 ++;
+        } else {
+            mensagem += `O jogador 2 ganhou! <br>`;
+            pontos2 ++;
+        }
+
+        mensagem += `
+            Jogador 1: ${pontos1} vitória(s) <br>
+            Jogador 2: ${pontos2} vitória(s)
+        `;
+
+        div_msg.innerHTML = mensagem;
+    }
+</script>
+

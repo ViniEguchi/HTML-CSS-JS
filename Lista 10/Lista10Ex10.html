@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 10</h1>
+
+    <button onclick="dado1()">Dado Jogador 1</button>
+    <div id="div_dado1"></div> <br>
+
+    <button onclick="dado2()">Dado Jogador 2</button>
+    <div id="div_dado2"></div> <br>
+
+    <button onclick="comparar()">Comparar Resultados</button>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+    var jogador1 = 0;
+    var jogador2 = 0;
+
+    function dado1() {
+        var aleatorio = Math.random() * 5 + 1;
+        jogador1 = Math.round(aleatorio);
+        div_dado1.innerHTML = jogador1;
+    }
+
+    function dado2() {
+        var aleatorio = Math.random() * 5 + 1;
+        jogador2 = Math.round(aleatorio);
+        div_dado2.innerHTML = jogador2;
+    }
+
+    function comparar() {
+        if (jogador1 == jogador2) {
+            div_msg.innerHTML = `Empate!`;
+        } else if (jogador1 < jogador2) {
+            div_msg.innerHTML = `Jogador 2 venceu`;
+        } else {
+            div_msg.innerHTML = `Jogador 1 venceu`;
+        }
+    }
+</script>

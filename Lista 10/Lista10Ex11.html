@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 11</h1>
+
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var aleatorio = Math.random() * 5;
+        var nota = aleatorio.toFixed(1);
+        
+        var mensagem = `Nota recebida: ${nota} <br>`;
+        
+        if (nota <= 0.5) {
+            mensagem += `<img src="./Emoji/muito triste.jpg">`;
+        } else if (nota <= 1.5) {
+            mensagem += `<img src="./Emoji/triste.jpg">`;
+        } else if (nota <= 3.5) {
+            mensagem += `<img src="./Emoji/neutro.jpg">`;
+        } else if (nota <= 4.5) {
+            mensagem += `<img src="./Emoji/feliz.jpg">`;
+        } else {
+            mensagem += `<img src="./Emoji/muito feliz.jpg">`;
+        }
+
+        div_msg.innerHTML = mensagem;
+    }
+</script>

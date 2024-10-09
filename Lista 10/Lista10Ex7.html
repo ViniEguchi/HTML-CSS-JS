@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 7</h1>
+
+    <button onclick="quero()">Quero um número cabalistico</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function quero() {
+        var aleatorio = Math.random() * 14 + 1;
+        var inteiro = Math.round(aleatorio);
+
+        var mensagem = '';
+
+        if (inteiro == 3 || inteiro == 4 || inteiro == 7 || inteiro == 10 || inteiro == 12) {
+            mensagem = `Eu S2 números cabalísticos!`;
+        } else {
+            mensagem = `Ah, me dá um número bom na próxima!`;
+        }
+
+        div_msg.innerHTML = mensagem;
+    }
+</script>
