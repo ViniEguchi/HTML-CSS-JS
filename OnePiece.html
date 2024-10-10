@@ -54,76 +54,73 @@
             tempo *= 60;
         }
 
-        if (ep > 1000) {
+        if (ep > 1000 || ep < 1) {
             alert('O número do episódio é inválido')
         } else if (tempo <= 0) {
             alert('Como vai assistir se não tem tempo?')
         } else {
-            if (abertura == 'Não' && encerramento == 'Não') {
-                qtdEp = tempo / 24;
+            for (;minCorridos < tempo; ep++) {
+                if (abertura == 'Não' && encerramento == 'Não') {
+                    qtdEp = tempo / 24;
 
-                for (var cont = ep; minCorridos < tempo; cont++) {
-                    mensagem += `Episódio: ${cont} <br>`;
+                    mensagem += `Episódio: ${ep} <br>`;
 
-                    for (var cont2 = 1; cont2 <= tempo && cont2 <= 24 && minCorridos < tempo; cont2++) {
-                        if (cont2 <= 2) {
-                            mensagem += `Minuto ${cont2}: Assitindo abertura <br>`;
-                        } else if (cont2 <= 22) {
-                            mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
+                    for (var cont = 1; cont <= 24 && minCorridos < tempo; cont++) {
+                        if (cont <= 2) {
+                            mensagem += `Minuto ${cont}: Assitindo abertura <br>`;
+                        } else if (cont <= 22) {
+                            mensagem += `Minuto ${cont}: Assitindo o Episódio <br>`;
                         } else {
-                            mensagem += `Minuto ${cont2}: Assitindo encerramento <br>`;
+                            mensagem += `Minuto ${cont}: Assitindo encerramento <br>`;
                         }
 
                         minCorridos++;
                     }
 
                     mensagem += `<br>`;
-                }
-            } else if (abertura == "Sim" && encerramento == 'Não') {
-                qtdEp = tempo / 22;
 
-                for (var cont = ep; minCorridos < tempo; cont++) {
-                    mensagem += `Episódio: ${cont} <br>`;
+                } else if (abertura == "Sim" && encerramento == 'Não') {
+                    qtdEp = tempo / 22;
 
-                    for (var cont2 = 1; cont2 < tempo && cont2 <= 22 && minCorridos < tempo; cont2++) {
-                        if (cont2 <= 20) {
-                            mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
+                    mensagem += `Episódio: ${ep} <br>`;
+
+                    for (var cont = 1; cont <= 22 && minCorridos < tempo; cont++) {
+                        if (cont <= 20) {
+                            mensagem += `Minuto ${cont}: Assitindo o Episódio <br>`;
                         } else {
-                            mensagem += `Minuto ${cont2}: Assitindo encerramento <br>`;
+                            mensagem += `Minuto ${cont}: Assitindo encerramento <br>`;
                         }
 
                         minCorridos++;
                     }
 
                     mensagem += `<br>`;
-                }
-            } else if (abertura == 'Não' && encerramento == "Sim") {
-                qtdEp = tempo / 22;
 
-                for (var cont = ep; minCorridos < tempo; cont++) {
-                    mensagem += `Episódio: ${cont} <br>`;
+                } else if (abertura == 'Não' && encerramento == "Sim") {
+                    qtdEp = tempo / 22;
 
-                    for (var cont2 = 1; cont2 < tempo && cont2 <= 22 && minCorridos < tempo; cont2++) {
-                        if (cont2 <= 2) {
-                            mensagem += `Minuto ${cont2}: Assitindo abertura <br>`;
+                    mensagem += `Episódio: ${ep} <br>`;
+
+                    for (var cont = 1; cont <= 22 && minCorridos < tempo; cont++) {
+                        if (cont <= 2) {
+                            mensagem += `Minuto ${cont}: Assitindo abertura <br>`;
                         } else {
-                            mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
+                            mensagem += `Minuto ${cont}: Assitindo o Episódio <br>`;
                         }
 
                         minCorridos++;
                     }
 
                     mensagem += `<br>`;
-                }
-            } else {
-                qtdEp = tempo / 20;
 
-                for (var cont = ep; minCorridos < tempo; cont++) {
-                    mensagem += `Episódio: ${cont} <br>`;
+                } else {
+                    qtdEp = tempo / 20;
 
-                    for (var cont2 = 1; cont2 < tempo && cont2 <= 20 && minCorridos < tempo; cont2++) {
-                        mensagem += `Minuto ${cont2}: Assitindo o Episódio <br>`;
-                        
+                    mensagem += `Episódio: ${ep} <br>`;
+
+                    for (var cont = 1; cont <= 20 && minCorridos < tempo; cont++) {
+                        mensagem += `Minuto ${cont}: Assitindo o Episódio <br>`;
+
                         minCorridos++;
                     }
 
