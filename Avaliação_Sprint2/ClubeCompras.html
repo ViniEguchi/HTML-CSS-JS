@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        background-color: #000000;
+        color: #f0f8ff;
+    }
+</style>
+
+<body>
+    <h1>Club de Compras</h1>
+
+    <div id="div_cadastro" style="display: contents;">
+        <h3>Cadastro</h3>
+
+        Nome de Usuário: <input type="text" id="ipt_usuario" oninput="checar_usuario()"> <br>
+        <div id="div_cadastro_usuario"></div>
+        Senha: <input type="text" id="ipt_senha" oninput="checar_senha()"> <br>
+        <div id="div_cadastro_senha"></div>
+
+        <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+
+    <div id="div_Login" style="display: none;">
+        <h3>Login</h3>
+
+        Usuário: <input type="text" id="ipt_login_usuario"> <br>
+        Senha: <input type="text" id="ipt_login_senha"> <br>
+        Grupo:
+        <select id="select_grupo">
+            <option>Ouro</option>
+            <option>Prata</option>
+            <option>Bronze</option>
+            <option>Cobre</option>
+        </select> <br>
+
+        <button onclick="logar()">Login</button>
+
+        <div id="div_msg_login"></div>
+    </div>
+
+    <div id="div_compras" style="display: none;">
+        <h3>Compras</h3>
+
+        <div id="div_extrato"></div>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+    var usuario = '';
+    var senha = '';
+    var cadastro_senha = '';
+    var cadastro_usuario = '';
+    var grupo = '';
+
+    function checar_usuario() {
+        usuario = ipt_usuario.value;
+        var tamanho_usuario = usuario.length;
+
+        var msg_usuario = '';
+
+        if (
+            usuario.includes(' ') ||
+            usuario.includes('!') ||
+            usuario.includes('@') ||
+            usuario.includes('#') ||
+            usuario.includes('$') ||
+            usuario.includes('%') ||
+            usuario.includes('&')
+        ) {
+            msg_usuario = `Nome de usuário inválido. Verifique os caracteres utilizados.`
+        } else {
+            cadastro_usuario = true;
+        }
+
+
+        div_cadastro_usuario.innerHTML = msg_usuario;
+    }
+
+    function checar_senha() {
+        senha = ipt_senha.value;
+        var tamanho_senha = senha.length;
+        var senha_lower = senha.toLowerCase();
+        var senha_upper = senha.toUpperCase();
+
+        var upper = false;
+        var lower = false;
+        var num = false;
+        var especial = false;
+        var tamanho = false;
+
+        var msg_senha = '';
+
+        if (tamanho_senha < 8) {
+            msg_senha = `A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial, uma letra maiúscula, uma letra minúscula e um número.`
+        } else {
+            tamanho = true;
+        }
+
+        if (
+            senha.includes('@') ||
+            senha.includes('!') ||
+            senha.includes('#') ||
+            senha.includes('$') ||
+            senha.includes('%') ||
+            senha.includes('&')
+        ) {
+            especial = true;
+        }
+
+        if (senha != senha_lower) {
+            upper = true;
+        }
+
+        if (senha != senha_upper) {
+            lower = true;
+        }
+
+        if (
+            senha.includes(1) ||
+            senha.includes(2) ||
+            senha.includes(3) ||
+            senha.includes(4) ||
+            senha.includes(5) ||
+            senha.includes(6) ||
+            senha.includes(7) ||
+            senha.includes(8) ||
+            senha.includes(9) ||
+            senha.includes(0)
+        ) {
+            num = true;
+        }
+
+        if (upper && lower && num && especial && tamanho) {
+            msg_senha = '';
+            cadastro_senha = true;
+        } else {
+            msg_senha = `A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial, uma letra maiúscula, uma letra minúscula e um número.`
+        }
+
+        div_cadastro_senha.innerHTML = msg_senha;
+    }
+
+    function cadastrar() {
+        if (cadastro_senha && cadastro_usuario) {
+            var aleatorio = Math.floor(Math.random() * 3 + 1);
+
+            if (aleatorio == 1) {
+                grupo = 'Ouro';
+            } else if (aleatorio == 2) {
+                grupo = 'Prata';
+            } else if (aleatorio == 3) {
+                grupo = 'Bronze';
+            } else {
+                grupo = 'Cobre';
+            }
+
+            div_cadastro.style.display = 'none';
+            div_Login.style.display = 'contents';
+            div_msg.innerHTML = `
+            Cadastro Concluído! <br> ------------------------- <br> 
+            Usuário: ${usuario} <br> 
+            Senha: ${senha} <br> 
+            Código do grupo: ${aleatorio} <br> 
+            Descrição: Grupo ${grupo}
+            `;
+        }
+    }
+
+    function logar() {
+        var login_usuario = ipt_login_usuario.value;
+        var login_senha = ipt_login_senha.value;
+        var login_grupo = select_grupo.value;
+
+        if (login_usuario == usuario && login_senha == senha && login_grupo == grupo) {
+            div_Login.style.display = 'none';
+            div_compras.style.display = 'contents';
+            div_msg.innerHTML = '';
+
+            var qtd_compras = Math.floor(Math.random() * 9 + 1);
+            var preco = (Math.random() * 90 + 10).toFixed(2);
+            var total = qtd_compras * preco;
+            var final = '';
+            var desconto = '';
+
+            if (grupo == 'Ouro') {
+                final = total * 0.80;
+                desconto = '20%';
+            } else if (grupo == 'Prata') {
+                final = total * 0.85;
+                desconto = '15%'
+            } else if (grupo == 'Bronze') {
+                final = total * 0.90;
+                desconto = '10%'
+            } else {
+                final = total * 0.95;
+                desconto = '5%'
+            }
+
+            div_extrato.innerHTML = `
+                Extrato de Compras <br>
+                ------------------------- <br>
+                Quantidade de Produtos: ${qtd_compras} <br>
+                Preço Médio por Produto: ${preco} <br>
+                Valor Original: ${total} <br>
+                Desconto: ${desconto} (-R$${(preco - final).toFixed(2)}) <br>
+                Valor Final: R$${final}
+            `
+        } else {
+            div_msg_login.innerHTML = `Usuario, Senha ou Grupo invalido`
+        }
+    }
+</script>
