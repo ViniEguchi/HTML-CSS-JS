@@ -18,6 +18,7 @@
 <body>
     <h1>Club de Compras</h1>
 
+    <!-- display: contents é utilizado para a exibição do conteudo  -->
     <div id="div_cadastro" style="display: contents;">
         <h3>Cadastro</h3>
 
@@ -29,6 +30,7 @@
         <button onclick="cadastrar()">Cadastrar</button>
     </div>
 
+    <!-- display: none é utilizado para 'esconder' o conteudo -->
     <div id="div_Login" style="display: none;">
         <h3>Login</h3>
 
@@ -47,6 +49,7 @@
         <div id="div_msg_login"></div>
     </div>
 
+    <!-- display: none é utilizado para 'esconder' o conteudo -->
     <div id="div_compras" style="display: none;">
         <h3>Compras</h3>
 
@@ -64,17 +67,20 @@
 <script>
     var usuario = '';
     var senha = '';
-    var cadastro_senha = '';
-    var cadastro_usuario = '';
     var grupo = '';
+    var cadastro_senha = false;
+    var cadastro_usuario = false;
 
+    // função para checar o nome de usuario
     function checar_usuario() {
         usuario = ipt_usuario.value;
+
+        // pega o tamanho da variavel usuario
         var tamanho_usuario = usuario.length;
 
         var msg_usuario = '';
 
-        if (
+        if ( // confere se qualquer um dos simbolos abaixo faz parte da input
             usuario.includes(' ') ||
             usuario.includes('!') ||
             usuario.includes('@') ||
@@ -88,10 +94,10 @@
             cadastro_usuario = true;
         }
 
-
         div_cadastro_usuario.innerHTML = msg_usuario;
     }
 
+    // função para checar a senha
     function checar_senha() {
         senha = ipt_senha.value;
         var tamanho_senha = senha.length;
@@ -106,13 +112,12 @@
 
         var msg_senha = '';
 
-        if (tamanho_senha < 8) {
-            msg_senha = `A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial, uma letra maiúscula, uma letra minúscula e um número.`
-        } else {
+        // verifica se a senha possui ao menos 8 digitos
+        if (tamanho_senha >= 8) {
             tamanho = true;
         }
 
-        if (
+        if ( // confere se qualquer um dos simbolos abaixo está presente na variavel
             senha.includes('@') ||
             senha.includes('!') ||
             senha.includes('#') ||
@@ -123,15 +128,17 @@
             especial = true;
         }
 
+        // confere se tem letra maiuscula na senha
         if (senha != senha_lower) {
             upper = true;
         }
 
+        // confere se tem letra minuscula na senha
         if (senha != senha_upper) {
             lower = true;
         }
 
-        if (
+        if ( // confere se tem numero na senha
             senha.includes(1) ||
             senha.includes(2) ||
             senha.includes(3) ||
@@ -146,6 +153,7 @@
             num = true;
         }
 
+        // caso a senha tenha passado por todas as validações define o cadastro_senha como true
         if (upper && lower && num && especial && tamanho) {
             msg_senha = '';
             cadastro_senha = true;
@@ -156,10 +164,14 @@
         div_cadastro_senha.innerHTML = msg_senha;
     }
 
+    // função do cadastro
     function cadastrar() {
+        // confere se o cadastro é valido
         if (cadastro_senha && cadastro_usuario) {
-            var aleatorio = Math.floor(Math.random() * 3 + 1);
+            // numero aleatorio entre 1, 2, 3 e 4
+            var aleatorio = Math.floor(Math.random() * 3 + 1); // Math.floor() arredonda o que estiver dentro do parenteses
 
+            // define um grupo dependendo do numero aleatorio gerado
             if (aleatorio == 1) {
                 grupo = 'Ouro';
             } else if (aleatorio == 2) {
@@ -170,8 +182,10 @@
                 grupo = 'Cobre';
             }
 
+            // esconde a parte do cadastro e exibe a do login
             div_cadastro.style.display = 'none';
             div_Login.style.display = 'contents';
+
             div_msg.innerHTML = `
             Cadastro Concluído! <br> ------------------------- <br> 
             Usuário: ${usuario} <br> 
@@ -182,14 +196,17 @@
         }
     }
 
+    // função do login
     function logar() {
         var login_usuario = ipt_login_usuario.value;
         var login_senha = ipt_login_senha.value;
         var login_grupo = select_grupo.value;
 
         if (login_usuario == usuario && login_senha == senha && login_grupo == grupo) {
+            // esconde a parte do login e exibe a da compra
             div_Login.style.display = 'none';
             div_compras.style.display = 'contents';
+
             div_msg.innerHTML = '';
 
             var qtd_compras = Math.floor(Math.random() * 9 + 1);
