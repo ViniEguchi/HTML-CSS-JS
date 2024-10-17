@@ -44,12 +44,15 @@
         var abertura = select_abertura.value;
         var encerramento = select_encerramento.value;
 
+        // conta a qtd de episodios
         var qtdEp = 0
 
+        // conta os minutos
         var minCorridos = 0;
 
         var mensagem = '';
 
+        // caso o tempo for em horas
         if (unidTempo == 'Horas') {
             tempo *= 60;
         }
@@ -58,13 +61,15 @@
             alert('O número do episódio é inválido')
         } else if (tempo <= 0) {
             alert('Como vai assistir se não tem tempo?')
-        } else {
+        } else { // possivel fazer com 8 ou 5 for
+            // repetição para a contagem de episodios, não ha necessidade da criação de uma variavel de contagem já como o minCorridos faz esse trabalho
             for (;minCorridos < tempo; ep++) {
                 if (abertura == 'Não' && encerramento == 'Não') {
                     qtdEp = tempo / 24;
 
                     mensagem += `Episódio: ${ep} <br>`;
 
+                    // repetição para a contagem dos minutos dentro do episodio
                     for (var cont = 1; cont <= 24 && minCorridos < tempo; cont++) {
                         if (cont <= 2) {
                             mensagem += `Minuto ${cont}: Assitindo abertura <br>`;
@@ -84,6 +89,7 @@
 
                     mensagem += `Episódio: ${ep} <br>`;
 
+                    // repetição para a contagem dos minutos dentro do episodio
                     for (var cont = 1; cont <= 22 && minCorridos < tempo; cont++) {
                         if (cont <= 20) {
                             mensagem += `Minuto ${cont}: Assitindo o Episódio <br>`;
@@ -101,6 +107,7 @@
 
                     mensagem += `Episódio: ${ep} <br>`;
 
+                    // repetição para a contagem dos minutos dentro do episodio
                     for (var cont = 1; cont <= 22 && minCorridos < tempo; cont++) {
                         if (cont <= 2) {
                             mensagem += `Minuto ${cont}: Assitindo abertura <br>`;
@@ -118,6 +125,7 @@
 
                     mensagem += `Episódio: ${ep} <br>`;
 
+                    // repetição para a contagem dos minutos dentro do episodio
                     for (var cont = 1; cont <= 20 && minCorridos < tempo; cont++) {
                         mensagem += `Minuto ${cont}: Assitindo o Episódio <br>`;
 
