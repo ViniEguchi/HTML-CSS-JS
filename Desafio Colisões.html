@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Desafio Colisões</h1>
 
@@ -26,6 +28,7 @@
 
     <div id="div_mensagem"></div>
 </body>
+
 </html>
 
 <script>
@@ -34,12 +37,12 @@
         var x1R1 = Number(ipt_x1r1.value);
         var y0R1 = Number(ipt_y0r1.value);
         var y1R1 = Number(ipt_y1r1.value);
-        
+
         var x0R2 = Number(ipt_x0r2.value);
         var x1R2 = Number(ipt_x1r2.value);
         var y0R2 = Number(ipt_y0r2.value);
         var y1R2 = Number(ipt_y1r2.value);
-        
+
         var mensagem = `Elementos não colidem`;
 
         if (x0R1 <= x0R2 && x0R2 <= x1R1 && y0R1 <= y0R2 && y0R2 <= y1R1) {
