@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 3</h1>
+
+    Bairro: <input type="text" id="ipt_bairro">
+
+    <button onclick="cadastrar()">Cadastrar bairro</button> <br>
+
+    número: <input type="number" id="ipt_num">
+
+    <button onclick="relembrar()">Relembrar moradia</button>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+    var lista = [];
+
+    function cadastrar() {
+        var bairro = ipt_bairro.value;
+
+        lista.push(bairro);
+    }
+
+    function relembrar() {
+        var num = ipt_num.value;
+
+        if (num < 1) {
+            div_msg.innerHTML = `Digite um número maior ou igual há 1`;
+        } else if (num > lista.length) {
+            div_msg.innerHTML = `Você ainda não morou num ${num}º bairro!`;
+        } else {
+            div_msg.innerHTML = lista[num - 1];
+        }
+    }
+</script>

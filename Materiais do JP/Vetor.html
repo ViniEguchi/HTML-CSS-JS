@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        color: aliceblue;
+        background-color: black;
+    }
+</style>
+
+<body>
+    Nome: <input type="text" id="ipt_nome">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="ver()">Ver Detalhes</button>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+    var lista_nomes = [];
+
+    function cadastrar() {
+        var nome = ipt_nome.value;
+
+        lista_nomes.push(nome);
+
+        console.log(lista_nomes);
+
+        div_msg.innerHTML = lista_nomes;
+    }
+
+    function pesquisar() {
+        var nome = ipt_nome.value;
+
+        var incluso = lista_nomes.includes(nome);
+
+        if (incluso) {
+            div_msg.innerHTML = `O nome ${nome} existe na lista`;
+        } else {
+            div_msg.innerHTML = `O nome ${nome} não existe na lista`;
+        }
+    }
+
+    function ver() {
+        var primeiro = lista_nomes[0];
+
+        var terceiro = lista_nomes[2];
+
+        var ultimo = lista_nomes[lista_nomes.length - 1];
+
+        div_msg.innerHTML = `
+            Primeira posição: ${primeiro} <br>
+            Terceira posição: ${terceiro} <br>
+            Ultima posição: ${ultimo} <br>
+        `;
+    }
+</script>
