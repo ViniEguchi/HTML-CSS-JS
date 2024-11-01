@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Frase: <input type="text" id="ipt_frase">
+
+    <button onclick="desafio()">Desafio</button>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    function desafio() {
+        var frase = ipt_frase.value;
+        var tamanho = frase.length;
+
+        var msg = `${frase} <br>`;
+
+        msg += `Tamanho da frase: ${tamanho} <br>`;
+
+        if (
+            frase.includes('a') ||
+            frase.includes('e') ||
+            frase.includes('i') ||
+            frase.includes('o') ||
+            frase.includes('u') ||
+            frase.includes('A') ||
+            frase.includes('E') ||
+            frase.includes('I') ||
+            frase.includes('O') ||
+            frase.includes('U')
+        ) {
+            msg += `Possui vogal: SIM <br><br>`;
+        } else {
+            msg += `Possui vogal: Não <br><br>`;
+        }
+
+        msg += 'Vertical: <br>';
+
+        for (var cont = 0; cont < tamanho; cont++) {
+            msg += `${frase[cont]} <br>`;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>
