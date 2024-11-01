@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Nome: <input type="text" id="ipt_nome"> <br>
+    Sobrenome: <input type="text" id="ipt_sobrenome"> <br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir</button>
+
+    <div id="div_msg" style="display: flex; flex-wrap: nowrap;"></div>
+</body>
+
+</html>
+
+<script>
+    var lista_nome = [];
+    var lista_sobrenome = [];
+
+    function cadastrar() {
+        var nome = ipt_nome.value;
+        var sobrenome = ipt_sobrenome.value;
+
+        if (nome == undefined || sobrenome == undefined) {
+            div_msg.innerHTML = `Insira nome e sobrenome`;
+        } else {
+            lista_nome.push(nome);
+            lista_sobrenome.push(sobrenome);
+
+            div_msg.innerHTML = `${nome} ${sobrenome} cadastrado com sucesso`;
+        }
+    }
+
+    function exibir() {
+        var msg = '';
+
+        for (var cont = 0; cont < lista_nome.length; cont++) {
+            msg += `contato ${cont + 1}: ${lista_nome[cont]} ${lista_sobrenome[cont]} <br>`
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
