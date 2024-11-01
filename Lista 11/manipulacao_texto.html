@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,21 +20,18 @@
         var frase = ipt_frase.value;
         var tamanho = frase.length;
 
+        var frase_min = frase.toLowerCase();
+
         var msg = `${frase} <br>`;
 
         msg += `Tamanho da frase: ${tamanho} <br>`;
 
         if (
-            frase.includes('a') ||
-            frase.includes('e') ||
-            frase.includes('i') ||
-            frase.includes('o') ||
-            frase.includes('u') ||
-            frase.includes('A') ||
-            frase.includes('E') ||
-            frase.includes('I') ||
-            frase.includes('O') ||
-            frase.includes('U')
+            frase_min.includes('a') ||
+            frase_min.includes('e') ||
+            frase_min.includes('i') ||
+            frase_min.includes('o') ||
+            frase_min.includes('u')
         ) {
             msg += `Possui vogal: SIM <br><br>`;
         } else {
