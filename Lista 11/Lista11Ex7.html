@@ -8,13 +8,15 @@
 </head>
 
 <body>
-    <h1>Exercicio 6</h1>
+    <h1>Exercicio 7</h1>
 
     Nome do filme: <input type="text" id="ipt_filme">
 
     <button onclick="cadastrar()">Cadastrar</button>
 
     <div id="div_msg"></div>
+
+    <span style="color: red;"></span>
 </body>
 
 <script>
@@ -22,12 +24,17 @@
 
     function cadastrar() {
         var filme = ipt_filme.value;
-        var msg = '';
 
         lista.push(filme);
 
+        var msg = '';
+
         for (var index = 0; index < lista.length; index++) {
-            msg += `${lista[index]} <br>`;
+            if (index % 2 == 0) {
+                msg += `<span style="color: blue;">${lista[index]}</span> <br>`;
+            } else {
+                msg += `<span style="color: red;">${lista[index]}</span> <br>`;
+            }
         }
 
         div_msg.innerHTML = msg;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 14</h1>
+
+    Digite um número qualquer: <input type="text" id="ipt_numero">
+
+    <button onclick="analisar()">Analisar histórico</button>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista = [];
+    var maior = 0;
+    var menor = 0;
+
+    function analisar() {
+        var numero = ipt_numero.value;
+
+        var msg = '';
+
+        if (maior == 0 && menor == 0) {
+            maior = numero;
+            menor = numero;
+        }
+
+        if (maior < numero) {
+            maior = numero;
+        }
+
+        if (menor > numero) {
+            menor = numero;
+        }
+
+        lista.push(numero);
+
+        for (var index = 0; index < lista.length; index++) {
+            msg += `${index + 1}º número: ${lista[index]} <br>`;
+        }
+
+        msg += `Maior: ${maior} <br>Menor: ${menor}`;
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 9</h1>
+
+    Nome do projeto: <input type="text" id="ipt_projeto">
+
+    <button onclick="registrar()">Registrar projeto</button>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista = [];
+
+    function registrar() {
+        var projeto = ipt_projeto.value;
+
+        var experiencia = '';
+
+        lista.push(projeto);
+
+        if (lista.length <= 4) {
+            experiencia = 'Júnior';
+        } else if (lista.length <= 12) {
+            experiencia = 'Pleno';
+        } else {
+            experiencia = 'Sênior';
+        }
+
+        div_msg.innerHTML = ` Você já fez ${lista.length} projetos. Por isso você é um profissional ${experiencia}`;
+    }
+
+    function mostrar() {
+        var msg = '';
+
+        for (var index = lista.length; index >= 0; index--) {
+            msg += `${lista[index]} <br>`;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>

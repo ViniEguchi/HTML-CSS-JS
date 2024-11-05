@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 13</h1>
+
+    Indique o resultado:
+    <select id="select_resultado">
+        <option>Vitoria</option>
+        <option>Empate</option>
+        <option>Derrota</option>
+    </select>
+
+    <button onclick="registrar()">Registrar jogo</button> <br>
+
+    Indique qual jogo deseja saber o resultado: <input type="number" id="ipt_resultado" oninput="ver()">
+
+    <div id="div_msg"></div>
+    <div id="div_ver"></div>
+</body>
+
+<script>
+    var lista = [];
+    var total_pontos = 0;
+    var qtd_v = 0;
+    var qtd_e = 0;
+    var qtd_d = 0;
+
+    function registrar() {
+        var resultado = select_resultado.value;
+
+        lista.push(resultado);
+
+        if (resultado == 'Vitoria') {
+            total_pontos += 3;
+
+            qtd_v++;
+        } else if (resultado == 'Empate') {
+            total_pontos += 1;
+
+            qtd_e++;
+        } else {
+            total_pontos += 0;
+
+            qtd_d++;
+        }
+
+        var aproveitamento = (total_pontos / ((qtd_d + qtd_e + qtd_v) * 3)) * 100;
+
+        div_msg.innerHTML = `O time teve: ${qtd_v} vitórias, ${qtd_e} empates, ${qtd_d} derrotas <br>Pontuação total: ${total_pontos} pontos <br>Aproveitamento: ${aproveitamento}% <br>`;
+
+        div_ver.innerHTML = '';
+    }
+
+    function ver() {
+        var numero = ipt_resultado.value - 1;
+
+        if (numero >= 0) {
+            if (numero > lista.length) {
+                div_ver.innerHTML = `<br> Não foi cadastrado um ${numero + 1}º jogo`;
+            } else {
+                div_ver.innerHTML = `<br> No ${numero + 1}º jogo, o time `;
+
+                if (lista[numero] == 'Vitoria') {
+                    div_ver.innerHTML += `Ganhou`;
+                } else if (lista[numero] == 'Empate') {
+                    div_ver.innerHTML += `Empatou`;
+                } else {
+                    div_ver.innerHTML += `Perdeu`;
+                }
+            }
+        }
+    }
+</script>
+
+</html>
