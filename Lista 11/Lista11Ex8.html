@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio 8</h1>
+    
+    Nome: <input type="text" id="ipt_nome">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista = [];
+
+    function cadastrar() {
+        var nome = ipt_nome.value;
+
+        lista.push(nome);
+
+        var msg = '';
+
+        for (var cont = lista.length - 1; cont >= 0; cont--) {
+            msg += `${lista[cont]} <br>`;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>
