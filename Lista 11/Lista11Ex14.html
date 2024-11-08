@@ -19,6 +19,7 @@
 
 <script>
     var lista = [];
+    var ciclo = 0;
     var maior = 0;
     var menor = 0;
 
@@ -27,7 +28,7 @@
 
         var msg = '';
 
-        if (maior == 0 && menor == 0) {
+        if (ciclo == 0) {
             maior = numero;
             menor = numero;
         }
