@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 17</h1>
+
+    Entrada de Produtos: <br>
+    Nome: <input type="text" id="ipt_nome_entrada"> <br>
+    Quantidade Comprada: <input type="text" id="ipt_qtd_entrada"> <br>
+
+    <button onclick="entrada()">Cadastrar Entrada</button> <br> <br>
+
+    Saida de Produtos: <br>
+    Nome: <input type="text" id="ipt_nome_saida"> <br>
+    Quantidade Vendida: <input type="text" id="ipt_qtd_saida"> <br>
+
+    <button onclick="saida()">Cadastrar Saida</button> <br> <br>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    lista_produtos = [];
+    lista_qtd = [];
+    
+    function entrada() {
+        var nome = ipt_nome_entrada.value.toUpperCase();
+        var qtd = Number(ipt_qtd_entrada.value);
+
+        var msg = '';
+
+        if (nome == '' || qtd == '') {
+            msg = `Digite o nome e a quantidade do produto`;
+        } else {
+            if (lista_produtos.includes(nome)) {
+                var index_produto = lista_produtos.indexOf(nome);
+
+                lista_qtd[index_produto] += qtd;
+
+                msg = `
+                Produto: ${nome} <br>
+                Quantidade em estoque: ${lista_qtd[index_produto]}
+                `;
+            } else {
+                lista_produtos.push(nome);
+                lista_qtd.push(qtd);
+
+                msg = `Produto cadastrado com sucesso!`;
+            }
+        }
+
+        div_msg.innerHTML = msg;
+    }
+
+    function saida() {
+        var nome = ipt_nome_saida.value.toUpperCase();
+        var qtd = Number(ipt_qtd_saida.value);
+
+        var msg = '';
+
+        if (nome == '' || qtd == '') {
+            msg = `Digite o nome e a quantidade do produto`;
+        } else {
+            if (lista_produtos.includes(nome)) {
+                var index_produto = lista_produtos.indexOf(nome);
+
+                if (lista_qtd[index_produto] < qtd) {
+                    msg = `Quantidade de produto insuficiente`;
+                } else {
+                    lista_qtd[index_produto] -= qtd;
+
+                    msg = `
+                    Produto: ${nome} <br>
+                    Quantidade Vendida: ${qtd} <br>
+                    Quantidade em Estoque: ${lista_qtd[index_produto]}
+                    `;
+                }
+            } else {
+                msg = `Não vendemos este produto`;
+            }
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>

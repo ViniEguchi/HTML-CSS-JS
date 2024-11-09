@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 16</h1>
+
+    Nome do Produto: <input type="text" id="ipt_produto"> <br>
+    Preço de Compra: <input type="number" id="ipt_preco"> <br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relatório de Estoque</button>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista_produto = [];
+    var lista_preco = [];
+
+    function cadastrar() {
+        var produto = ipt_produto.value;
+        var preco = Number(ipt_preco.value);
+
+        lista_produto.push(produto);
+        lista_preco.push(preco);
+    }
+
+    function relatorio() {
+        var maior = '';
+        var menor = '';
+        var total_compra = 0;
+        var total_venda = 0;
+
+        var msg = `Total de produtos: ${lista_produto.length} <br>`;
+
+        for (var index = 0; index < lista_produto.length && index < lista_preco.length; index++) {
+            var preco_venda = lista_preco[index] * 1.25
+
+            if (lista_preco[index] < lista_preco[index] + 1) {
+                menor = lista_produto[index];
+            }
+
+            if (lista_preco[index] > lista_preco[index + 1]) {
+                maior = lista_produto[index];
+            }
+
+            total_compra += lista_preco[index];
+            total_venda += preco_venda;
+            
+            msg += `Produto ${index + 1}: ${lista_produto[index]} <br>Preço de compra: R$${lista_preco[index]}. Vende por R$${preco_venda} <br>`;
+        }
+
+        var media_venda = total_venda / lista_preco.length;
+
+        msg += `
+        <br>Produto mais caro: ${maior} <br>
+        Produto mais barato: ${menor} <br>
+        Soma dos preços de compra: ${total_compra} <br>
+        Média dos preços de venda: ${media_venda.toFixed(2)} <br>
+        `;
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 20</h1>
+
+    Nome: <input type="text" id="ipt_nome"> <br>
+    Preço: <input type="text" id="ipt_preco"> <br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Estoque</button> <br> <br>
+
+    <select id="select_preco">
+        <option value="0">Preços acima de</option>
+        <option value="1">Preços abaixo de</option>
+    </select> <br>
+
+    Valor: <input type="number" id="ipt_base">
+
+    <button onclick="filtrar()">Filtrar Produtos</button> <br><br>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista_nome = [];
+    var lista_preco = [];
+
+    function cadastrar() {
+        var nome = ipt_nome.value;
+        var preco = Number(ipt_preco.value);
+
+        if (nome.length < 3 || preco < 0) {
+            div_msg.innerHTML = `insira um nome ou preço valido`;
+        } else {
+            div_msg.innerHTML = '';
+
+            lista_nome.push(nome);
+            lista_preco.push(preco);
+        }
+    }
+
+    function atualizar() {
+        var total = 0;
+
+        var msg = `Você tem ${lista_nome.length} produtos cadastrados em estoque: <br>`;
+
+        for (var index = 0; index < lista_nome.length; index++) {
+            msg += `${index + 1}. ${lista_nome[index]} - R$${lista_preco[index]} <br>`;
+
+            total += lista_preco[index];
+        }
+
+        msg += `Seu estoque vale R$${total}`;
+
+        div_msg.innerHTML = msg;
+    }
+
+    function filtrar() {
+        var selecao = select_preco.value;
+        var base = Number(ipt_base.value);
+
+        var msg = ``;
+
+        if (selecao == 0) {
+            for (var index = 0; index < lista_nome.length; index++) {
+                if (lista_preco[index] >= base) {
+                    msg += `${index + 1}. ${lista_nome[index]} - R$${lista_preco[index]} <br>`;
+                }
+            }
+        } else {
+            for (var index = 0; index < lista_nome.length; index++) {
+                if (lista_preco[index] <= base) {
+                    msg += `${index + 1}. ${lista_nome[index]} - R$${lista_preco[index]} <br>`;
+                }
+            }
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>

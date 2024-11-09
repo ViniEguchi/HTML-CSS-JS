@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 18</h1>
+
+    Musica: <input type="text" id="ipt_musica"> <br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir</button> <br><br>
+
+    De... <input type="number" id="ipt_de"> <br>
+    Até... <input type="number" id="ipt_ate"> <br>
+    <button onclick="filtrar()">Filtrar</button>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    lista = [];
+
+    function cadastrar() {
+        var musica = ipt_musica.value;
+
+        lista.push(musica);
+    }
+
+    function exibir() {
+        var msg = '';
+
+        for (var index = 0; index < lista.length; index++) {
+            msg += `${index + 1}ª musica: ${lista[index]} <br>`;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+
+    function filtrar() {
+        var msg = '';
+
+        var de = Number(ipt_de.value) - 1;
+        var ate = Number(ipt_ate.value) - 1;
+
+        if (de > ate) {
+            msg = `O numero inserido em 'De...' precisa ser menor que o numero inserido em 'Até...'`;
+        } else if (ate > lista.length) {
+            msg = `Você não tem todas essas musicas`;
+        } else {
+            for (var index = de; index <= ate; index++) {
+                msg += `${index + 1}ª musica: ${lista[index]} <br>`;
+            }
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>

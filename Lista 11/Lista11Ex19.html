@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Exercicio 19</h1>
+
+    Filme: <input type="text" id="ipt_filme"> <br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Listar Filmes</button> <br><br>
+
+    Inicio do Intervalo: <input type="number" id="ipt_inicio"> <br>
+    Fim do intervalo: <input type="number" id="ipt_fim"> <br>
+    <button onclick="filtrar()">Filtrar Filmes</button> <br>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista = [];
+
+    function cadastrar() {
+        var filme = ipt_filme.value;
+
+        lista.push(filme);
+
+        div_msg.innerHTML = `Você já assistiu ${lista.length} filmes`;
+    }
+
+    function listar() {
+        var msg = '';
+
+        for (var index = lista.length - 1; index >= 0; index--) {
+            msg += `${lista[index]} <br>`;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+
+    function filtrar() {
+        var msg = '';
+
+        var inicio = Number(ipt_inicio.value) - 1;
+        var fim = Number(ipt_fim.value) - 1;
+
+        if (inicio > fim) {
+            msg = `O numero inserido em 'De...' precisa ser menor que o numero inserido em 'Até...'`;
+        } else if (fim > lista.length) {
+            msg = `Você não tem todas essas musicas`;
+        } else {
+            for (var index = fim; index >= inicio; index--) {
+                msg += `${lista[index]} <br>`;
+            }
+        }
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>
