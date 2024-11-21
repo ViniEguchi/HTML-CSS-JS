@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tênis Clube SPTECH</title>
+    <style>
+      body {
+        display: flex;
+        align-items: stretch;
+      }
+
+      body div:first-child,
+      body div:nth-of-type(2) {
+        padding: 8px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+      }
+
+      body div:nth-of-type(2) {
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <label for="input_qtd_rodadas">
+        Rodadas máximas:
+        <input id="input_qtd_rodadas" /><br />
+      </label>
+
+      <button onclick="realizarRodada()">Realizar rodada</button>
+
+      <h3>Informe as rodadas que deseja relembrar</h3>
+
+      <label for="input_inicio_intervalo">Início:</label>
+      <input id="input_inicio_intervalo" />
+      <label for="input_fim_intervalo">Fim:</label>
+      <input id="input_fim_intervalo" />
+
+      <button onclick="relembrarRodadas()">Relembrar</button>
+      <br />
+      <br />
+
+      <button onclick="exibirHistorico()">Histórico da Partida</button>
+    </div>
+    <div>
+      <h3>Painel</h3>
+      <div id="div_painel"></div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var lista_jogador1 = [];
+  var lista_jogador2 = [];
+
+  function realizarRodada() {
+    var rodadas = Number(input_qtd_rodadas.value);
+
+    var msg = '';
+
+    if (rodadas <= 0) {
+      alert('Rodadas máximas invalidas');
+    } else {
+      var pontos1 = Math.floor(Math.random() * 9 + 1);
+      var pontos2 = Math.floor(Math.random() * 9 + 1);
+
+      var total1 = 0;
+      var total2 = 0;
+
+      if (lista_jogador1.length < rodadas) {
+        lista_jogador1.push(pontos1);
+        lista_jogador2.push(pontos2);
+      }
+
+      for (var cont = 0; cont < lista_jogador1.length; cont++) {
+        var atual1 = lista_jogador1[cont];
+        var atual2 = lista_jogador2[cont];
+
+        total1 += atual1;
+        total2 += atual2;
+
+        msg += `
+          Pontos Jogador 1: ${atual1} <br>
+          Pontos Jogador 2: ${atual2} <br> <br>
+        `
+      }
+
+      msg += `
+        Total Jogador 1: ${total1} <br>
+        Total Jogador 2: ${total2}
+      `;
+
+      div_painel.innerHTML = msg;
+    }
+  }
+
+  function relembrarRodadas() {
+    var inicio = Number(input_inicio_intervalo.value) - 1;
+    var fim = Number(input_fim_intervalo.value) - 1;
+
+    var msg = '';
+
+    var maior1 = lista_jogador1[inicio];
+    var menor1 = lista_jogador1[inicio];
+
+    var maior2 = lista_jogador2[inicio];
+    var menor2 = lista_jogador2[inicio];
+
+    var total1 = 0;
+    var total2 = 0;
+
+    for (var cont = inicio; cont <= fim; cont++) {
+      var atual1 = lista_jogador1[cont];
+      var atual2 = lista_jogador2[cont];
+
+      total1 += atual1;
+      total2 += atual2;
+
+      msg += `
+        Pontos Jogador 1: ${atual1} <br>
+        Pontos Jogador 2: ${atual2} <br> <br>
+      `;
+
+      if (atual1 > maior1) {
+        maior1 = atual1;
+      }
+
+      if (atual1 < menor1) {
+        menor1 = atual1;
+      }
+
+      if (atual2 > maior2) {
+        maior2 = atual2;
+      }
+
+      if (atual2 < menor2) {
+        menor2 = atual2;
+      }
+    }
+
+    msg += `
+      Total Jogador 1: ${total1} <br>
+      Total Jogador 2: ${total2} <br> <br>
+    `;
+
+    msg += `
+      Maior Pontuação Jogador 1: ${maior1} <br>
+      Menor Pontuação Jogador 1: ${menor1} <br> <br>
+    `;
+
+    msg += `
+      Maior Pontuação Jogador 2: ${maior2} <br>
+      Menor Pontuação Jogador 2: ${menor2} <br> <br>
+    `;
+
+    div_painel.innerHTML = msg;
+  }
+
+  function exibirHistorico() {
+    var rodadas = Number(input_qtd_rodadas.value);
+
+    var total1 = 0;
+    var total2 = 0;
+
+    var msg = '';
+
+    if (lista_jogador1.length < rodadas) {
+      alert('Finalize todas as rodadas da partida');
+    } else {
+      for (var cont = lista_jogador1.length - 1; cont >= 0; cont--) {
+        var atual1 = lista_jogador1[cont];
+        var atual2 = lista_jogador2[cont];
+
+        total1 += atual1;
+        total2 += atual2;
+
+        msg += `
+          Pontos Jogador 1: ${atual1} <br>
+          Pontos Jogador 2: ${atual2} <br> <br>
+        `;
+
+        if (atual1 > atual2) {
+          msg += `<b>Jogador 1 ganhou a ${cont + 1}º rodada</b> <br> <br>`;
+        } else if (atual1 < atual2) {
+          msg += `<b>Jogador 2 ganhou a ${cont + 1}º rodada</b> <br> <br>`;
+        } else {
+          msg += `<b>Empate na ${cont + 1}º rodada</b> <br> <br>`;
+        }
+      }
+
+      msg += `
+      Total Jogador 1: ${total1} <br>
+      Total Jogador 2: ${total2} <br> <br>
+      `;
+
+      div_painel.innerHTML = msg;
+    }
+  }
+</script>
