@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background-color: black;
+        color: aliceblue;
+    }
+</style>
+
+<body>
+    Nome do Produto: <input type="text" id="ipt_nome"> <br>
+    Código Único: <input type="text" id="ipt_codigo"> <br>
+    Quantidade de Produto: <input type="number" id="ipt_qtd"> <br>
+
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+    <button onclick="repor()">Repor Estoque</button>
+    <button onclick="vender()">Vender Produto</button>
+    <button onclick="exibir()">Exibir Relatório</button> <br>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista_nome = [];
+    var lista_codigo = [];
+    var lista_qtd = [];
+
+    function cadastrar() {
+        var nome = ipt_nome.value;
+        var codigo = ipt_codigo.value;
+        var qtd = Number(ipt_qtd.value);
+
+        var msg = '';
+
+        if (nome == '' || codigo == '' || qtd == '') {
+            msg = `Preencha todos os campos para registrar um novo produto`;
+        } else if (lista_codigo.includes(codigo)) {
+            msg = `Código de produto já existente`;
+        } else if (qtd < 10) {
+            msg = `Favor cadastrar produto com no minimo 10 unidades`;
+        } else {
+            lista_nome.push(nome);
+            lista_codigo.push(codigo);
+            lista_qtd.push(qtd);
+
+            msg = `Produto ${nome} registrado com sucesso`;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+
+    function repor() {
+        var nome = ipt_nome.value;
+        var codigo = ipt_codigo.value;
+        var qtd = Number(ipt_qtd.value);
+
+        var index_codigo = lista_codigo.indexOf(codigo);
+        var index_nome = lista_nome.indexOf(nome);
+
+        var msg = '';
+
+        var repor = 'OK'
+
+        if (nome == '' || codigo == '' || qtd == '') {
+            msg = `Preencha todos os campos para repor um produto`;
+        } else if (index_codigo == -1 || index_nome == -1) {
+            msg = `Produto não identificado`;
+        } else if (qtd < 1) {
+            msg = `Quantidade inválida`;
+        } else {
+            lista_qtd[index_codigo] += qtd;
+
+            if (lista_qtd[index_codigo] < 10) {
+                repor = `Repor`
+            }
+
+            msg = `${qtd}x do ${nome} foi reposto com sucesso`;
+
+            msg += `
+                <br> Código: ${codigo} | Produto: ${nome} | Quantidade em Estoque: ${lista_qtd[index_codigo]} (${repor})
+            `;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+
+    function vender() {
+        var nome = ipt_nome.value;
+        var codigo = ipt_codigo.value;
+        var qtd = Number(ipt_qtd.value);
+
+        var index_codigo = lista_codigo.indexOf(codigo);
+        var index_nome = lista_nome.indexOf(nome);
+
+        var msg = '';
+
+        var repor = `OK`;
+
+        if (nome == '' || codigo == '' || qtd == '') {
+            msg = `Preencha todos os campos para vender um produto`;
+        } else if (index_codigo == -1 || index_nome == -1) {
+            msg = `Produto não identificado`;
+        } else if (qtd < 1) {
+            msg = `Quantidade inválida`;
+        } else if (lista_qtd[index_codigo] - qtd < 0) {
+            msg = `Não há produto suficiente no estoque`;
+        } else {
+            lista_qtd[index_codigo] -= qtd;
+
+            if (lista_qtd[index_codigo] < 10) {
+                repor = `Repor`;
+
+                alert(`É necessario repor o produto: ${nome}`);
+            }
+
+            msg = `${qtd}x do ${nome} foi vendido com sucesso`;
+
+            msg += `
+                <br> Código: ${codigo} | Produto: ${nome} | Quantidade em Estoque: ${lista_qtd[index_codigo]} (${repor})
+            `;
+        }
+
+        div_msg.innerHTML = msg;
+    }
+    
+    function exibir() {
+        div_msg.innerHTML = '';
+
+        var msg = '';
+
+        var qtd_total = 0;
+
+        for (var cont = 0; cont < lista_codigo.length; cont++) {
+            if (lista_qtd[cont] >= 10) {
+                msg += `
+                    Categoria ${cont + 1} - Código: ${lista_codigo[cont]} | Produto: ${lista_nome[cont]} | Quantidade em Estoque: ${lista_qtd[cont]} (OK) <br> 
+                `;
+            } else {
+                msg += `
+                    Categoria ${cont + 1} - Código: ${lista_codigo[cont]} | Produto: ${lista_nome[cont]} | Quantidade em Estoque: ${lista_qtd[cont]} (Precisa Repor) <br>
+                `;
+            }
+
+            qtd_total += lista_qtd[cont];
+        }
+
+        msg += `
+            Seu estoque tem ${qtd_total} produtos registrados, sendo ${cont} categorias diferentes
+        `;
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>

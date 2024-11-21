@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background-color: black;
+        color: aliceblue;
+    }
+</style>
+
+<body>
+    <div id="div_cadastro">
+        Nome do jogador: <input type="text" id="ipt_nome">
+
+        <button onclick="cadastrar()">Cadastrar Nome</button>
+        <button onclick="ir_registro()">Ir para Registro de Pontuações</button>
+    </div> <br>
+
+    <div id="div_registro" style="display: none;">
+        <div id="jogador_atual"></div> <br> <br>
+
+        Pontuação do Jogador atual: <input type="number" id="ipt_pontos">
+
+        <button onclick="registrar_pontos()">Registrar Pontuação</button>
+        <button onclick="finalizar()">Finalizar e Exibir Resultados</button>
+    </div> <br>
+
+    <div id="div_final" style="display: none;">
+
+    </div> <br>
+
+    <div id="div_msg"></div>
+</body>
+
+<script>
+    var lista_nome = [];
+    var lista_pontos = [];
+
+    function cadastrar() {
+        var nome = ipt_nome.value;
+
+        if (nome == '') {
+            div_msg.innerHTML = `<span style="color: red;">Preencha o campo</span>`;
+        } else if (lista_nome.indexOf(nome) != -1) {
+            div_msg.innerHTML = `<span style="color: red;">Este jogador já foi cadastrado</span>`;
+        } else {
+            lista_nome.push(nome);
+
+            div_msg.innerHTML = `<span style="color: green;">Jogador ${nome} cadastrado com sucesso</span>`;
+        }
+    }
+
+    var ciclo = 1;
+    var total_pontos = 0;
+
+    function ir_registro() {
+        if (lista_nome == []) {
+            div_msg.innerHTML = `Favor cadastrar ao menos um jogador`;
+        } else {
+            div_cadastro.style.display = 'none';
+            div_registro.style.display = 'contents';
+
+            div_msg.innerHTML = '';
+
+            jogador_atual.innerHTML = `${lista_nome[0]} - ${ciclo}/${lista_nome.length}`;
+        }
+    }
+
+    function registrar_pontos() {
+        var pontos = Number(ipt_pontos.value);
+
+        if (pontos < 0) {
+            div_msg.innerHTML = `Favor inserir uma quantidade de pontos positiva`;
+        } else {
+            if (lista_nome.length == lista_pontos.length) {
+                return;
+            }
+            
+            lista_pontos.push(pontos);
+
+            total_pontos += lista_pontos[ciclo - 1];
+
+            div_msg.innerHTML = `<span style="color: green;">Pontos atribuidos com sucesso</span>`
+
+            ciclo++
+
+            jogador_atual.innerHTML = `${lista_nome[ciclo - 1]} - ${ciclo}/${lista_nome.length}`;
+        }
+
+        if (ciclo > lista_nome.length) {
+            ciclo = lista_nome.length;
+
+            jogador_atual.innerHTML = `${lista_nome[ciclo - 1]} - ${ciclo}/${lista_nome.length}`
+
+            return;
+        }
+    }
+
+    function finalizar() {
+        if (lista_pontos.length != lista_nome.length) {
+            div_msg.innerHTML = `Favor registrar a pontuação de todos os jogadores`;
+
+            return;
+        }
+
+        div_registro.style.display = 'none';
+        div_final.style.display = 'contents';
+
+        return resultados();
+    }
+
+    function resultados() {
+        var vencedor_nome = lista_nome[0];
+        var vencedor_pontos = lista_pontos[0];
+
+        var qtd_bonificado = 0;
+
+        var msg = `Total: ${total_pontos} pontos <br> <br>`;
+
+        msg += `Jogadores: ${lista_nome.length} <br> <br>`;
+
+        for (var cont = 0; cont < lista_nome.length; cont++) {
+            var nome_atual = lista_nome[cont];
+            var pontos_atual = lista_pontos[cont];
+
+            
+            if (pontos_atual > vencedor_pontos) {
+                vencedor_nome = nome_atual;
+                vencedor_pontos = pontos_atual;
+            }
+            
+            if (pontos_atual % 3 == 0 && pontos_atual % 5 == 0) {
+                qtd_bonificado++;
+
+                msg += `${cont + 1} - ${nome_atual} -> ${pontos_atual} ${((pontos_atual / total_pontos) * 100).toFixed(2)}% (PRÊMIO BÔNUS) <br>`;
+            } else {
+                msg += `${cont + 1} - ${nome_atual} -> ${pontos_atual} ${((pontos_atual / total_pontos) * 100).toFixed(2)}% <br>`;
+            }
+        }
+
+        msg += `Vencedor: ${vencedor_nome}, ${vencedor_pontos} pontos <br> <br>`;
+
+        msg += `Jogadores bonificados: ${qtd_bonificado}`;
+
+        div_msg.innerHTML = msg;
+    }
+</script>
+
+</html>
